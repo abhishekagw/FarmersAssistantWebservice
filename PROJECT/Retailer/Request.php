@@ -68,7 +68,7 @@ if(isset($_POST["btn_save"]))
                 </div>
                 <div class="col-lg-6 col-md-6 col-12">
                     <ul class="breadcrumb-nav">
-                        <li><a href="HomePgae.php">Home</a></li>
+                        <li><a href="HomePage.php">Home</a></li>
                         <li>Post Your Ad</li>
                     </ul>
                 </div>

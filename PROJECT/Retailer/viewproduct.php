@@ -153,56 +153,7 @@ session_start();
                         </div>
                         <!-- End Single Block -->
                         <!-- Start Single Block -->
-                        <div class="single-block comments">
-                            <h3>Comments</h3>
-                            <!-- Start Single Comment -->
-                            <div class="single-comment">
-                                <img src="../Assets/Files/Farmer/Photo/<?php echo $data1["farmer_photo"]?>" alt="#">
-                                <div class="content">
-                                    <h4>Luis Havens</h4>
-                                    <span>25 Feb, 2023</span>
-                                    <p>
-                                        There are many variations of passages of Lorem Ipsum available, but the majority
-                                        have suffered alteration in some form, by injected humour, or randomised words
-                                        which don't look even slightly believable.
-                                    </p>
-                                    <a href="javascript:void(0)" class="reply"><i class="lni lni-reply"></i> Reply</a>
-                                </div>
-                            </div>
-                            <!-- End Single Comment -->
-                        </div>
-                        <!-- End Single Block -->
-                        <!-- Start Single Block -->
-                        <div class="single-block comment-form">
-                            <h3>Post a comment</h3>
-                            <form action="#" method="POST">
-                                <div class="row">
-                                    <div class="col-lg-6 col-12">
-                                        <div class="form-box form-group">
-                                            <input type="text" name="name" class="form-control form-control-custom"
-                                                placeholder="Your Name" />
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-12">
-                                        <div class="form-box form-group">
-                                            <input type="email" name="email" class="form-control form-control-custom"
-                                                placeholder="Your Email" />
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="form-box form-group">
-                                            <textarea name="#" class="form-control form-control-custom"
-                                                placeholder="Your Comments"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="button">
-                                            <button type="submit" class="btn">Post Comment</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
+                        
                         <!-- End Single Block -->
                     </div>
                     <div class="col-lg-4 col-md-5 col-12">
@@ -211,43 +162,23 @@ session_start();
                             <div class="single-block author">
                                 <h3>Farmer</h3>
                                 <div class="content">
+                                <a href="Userprofile.php?fid=<?php echo $data1["farmer_id"];?>" >
                                     <img src="../Assets/Files/Farmer/Photo/<?php echo $data1["farmer_photo"]?>" alt="#">
                                     <h4><?php echo $data1["farmer_name"]?></h4>
-                                    <span>Member Since May 15,2023</span>
-                                    <a href="javascript:void(0)" class="see-all">See All Ads</a>
+                                    <span>Member Since May 15,2023</span></a><br>
+                                    <a href="Userprofile.php?fid=<?php echo $data1["farmer_id"];?>" class="see-all">See All Ads</a>
                                 </div>
                             </div>
                             <!-- End Single Block -->
                             <!-- Start Single Block -->
                             <div class="single-block contant-seller comment-form ">
-                                <h3>Contact Us</h3>
-                                <form action="#" method="POST">
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <div class="form-box form-group">
-                                                <input type="text" name="name" class="form-control form-control-custom"
-                                                    placeholder="Your Name" />
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="form-box form-group">
-                                                <input type="email" name="email"
-                                                    class="form-control form-control-custom" placeholder="Your Email" />
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="form-box form-group">
-                                                <textarea name="#" class="form-control form-control-custom"
-                                                    placeholder="Your Message"></textarea>
-                                            </div>
-                                        </div>
+                               
                                         <div class="col-12">
                                             <div class="button">
-                                                <button type="submit" class="btn">Send Message</button>
+                                                <a href="reportad.php?fid=<?php echo $data1["farmer_id"]; ?>&pid=<?php echo $data1["product_id"]; ?>" class="btn">Report This Ad</a>
                                             </div>
                                         </div>
-                                    </div>
-                                </form>
+                                   
                             </div>
                             <!-- End Single Block -->
                             <!-- Start Single Block -->
