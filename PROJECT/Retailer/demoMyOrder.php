@@ -4,7 +4,7 @@ $currentPage = 'search';
 include('Head.php');
 include("../Assets/Connection/Connection.php");
 
-session_start();
+ 
 ?>
 <!DOCTYPE html>
 <html>

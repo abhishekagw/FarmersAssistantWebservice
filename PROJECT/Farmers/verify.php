@@ -1,6 +1,10 @@
 <?php
+ob_start();
+$currentPage = 'search';
+include('Head.php');
 include("../Assets/Connection/Connection.php");
-session_start();
+
+ 
 use PHPMailer\PHPMailer\PHPMailer;
 	use PHPMailer\PHPMailer\Exception;
 require '../Assets/phpMail/src/Exception.php';
@@ -89,63 +93,108 @@ if(isset($_POST["btn_resend"]))
 }
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Verify</title>
+    <meta charset="utf-8">
+    <title>Verify Retailer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <style>
+        #form1 {
+            margin: 50px auto;
+            max-width: 400px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        #btn_resend {
+            padding: 8px 16px;
+            margin-top: 10px;
+            background-color: #6c757d;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
 </head>
-
 <body>
+  <!-- Start Breadcrumbs -->
+  <div class="breadcrumbs">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-md-6 col-12">
+                    <div class="breadcrumbs-content">
+                        <h1 class="page-title">Verfiy</h1>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-12">
+                    <ul class="breadcrumb-nav">
+                        <li><a href="HomePgae.php">Home</a></li>
+                        <li>Details</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Breadcrumbs -->
 
-<form id="form1" name="form1" method="post" action="">
-<br />
-<br />
-<h2 align="center">Verify Retailer</h2>
-<br />
-<p align="center">We Have Sent an OTP to The Retailer's Email</p>
-  <table  border="1" align="center">
-    <tr>
-      <td><label for="txt_otp"></label>
-      <input type="text" name="txt_otp" id="txt_otp" /></td><td> <input type="submit" name="btn_send" id="btn_send" value="Send" /></td>
-    </tr>
-  </table>
-  <p align="center">
-    <input type="submit" name="btn_resend" id="btn_resend" value="Resend" />
-    <span id="countdown"></span>
-  </p>
-  <p align="center"><b>!</b> Fill OTP Sent to Email</p>
-  <p align="center"><b>!</b> Please Check the junk/spam Folder in case you do not get email</p>
-</form>
+<div class="container">
+            <div class="row">
+
+    <form id="form1" name="form1" method="post" action="" class="text-center">
+        <h2>Verify Retailer</h2>
+        <p>We Have Sent an OTP to The Retailer's Email</p>
+        <div class="form-group row justify-content-center">
+            <input type="text" class="form-control col-7" name="txt_otp" id="txt_otp" placeholder="Enter OTP">
+            <input type="submit" class="btn btn-primary col-4 ml-2" name="btn_send" id="btn_send" value="Send">
+        </div>
+        <p>
+            <button type="submit" class="btn btn-secondary" name="btn_resend" id="btn_resend" disabled>Resend</button>
+            <span id="countdown"></span>
+        </p>
+        <p><b>!</b> Fill OTP Sent to Email</p>
+        <p><b>!</b> Please Check the junk/spam Folder in case you do not get the email</p>
+    </form>
+</div>
+      </div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script>
-  // Call the function to initialize the countdown
-  startTimer();
+    startTimer();
 
-  function startTimer() {
-    var timerDurationSeconds = 5; // Set the countdown duration in seconds
+    function startTimer() {
+        var timerDurationSeconds = 5; // Countdown duration in seconds
 
-    var timerDisplay = document.getElementById('countdown');
-    var resendButton = document.getElementById('btn_resend');
+        var timerDisplay = document.getElementById('countdown');
+        var resendButton = document.getElementById('btn_resend');
 
-    var endTime = new Date().getTime() + (timerDurationSeconds * 1000);
+        var endTime = new Date().getTime() + (timerDurationSeconds * 1000);
 
-    function updateCountdown() {
-      var now = new Date().getTime();
-      var remainingTime = Math.max(0, Math.ceil((endTime - now) / 1000));
+        function updateCountdown() {
+            var now = new Date().getTime();
+            var remainingTime = Math.max(0, Math.ceil((endTime - now) / 1000));
 
-      if (remainingTime === 0) {
-        resendButton.disabled = false;
-        timerDisplay.innerText = '';
-      } else {
-        resendButton.disabled = true;
-        timerDisplay.innerText = 'Resend OTP in ' + remainingTime + ' seconds';
-        setTimeout(updateCountdown, 1000);
-      }
+            if (remainingTime === 0) {
+                resendButton.disabled = false;
+                timerDisplay.innerText = '';
+            } else {
+                resendButton.disabled = true;
+                timerDisplay.innerText = 'Resend OTP in ' + remainingTime + ' seconds';
+                setTimeout(updateCountdown, 1000);
+            }
+        }
+
+        updateCountdown();
     }
-
-    // Initial call to start the countdown
-    updateCountdown();
-  }
 </script>
 </body>
+<?php
+
+include('Foot.php');
+ob_end_flush();
+?>  
 </html>

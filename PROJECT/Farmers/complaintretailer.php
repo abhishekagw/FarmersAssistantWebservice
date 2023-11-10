@@ -2,7 +2,7 @@
 ob_start();
 include('Head.php');
 include("../Assets/Connection/Connection.php");
-session_start();
+ 
 $rid=$_GET["rid"];
 
 if(isset($_POST["btn_submit"]))

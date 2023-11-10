@@ -1,6 +1,6 @@
 <?php
 include("../Assets/Connection/Connection.php");
-session_start();
+ 
 if(isset($_POST["btn_submit"]))
 {
 	$suggestion=$_POST["txt_suggestion"];

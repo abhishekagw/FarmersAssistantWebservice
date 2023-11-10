@@ -4,7 +4,7 @@ $currentPage = 'search';
 include('Head.php');
 include("../Assets/Connection/Connection.php");
 
-session_start();
+ 
 $fid=$_GET["fid"];
 $pid=$_GET["pid"];
 
@@ -12,7 +12,7 @@ if(isset($_POST["btn_report"]))
 {
 	$reason=$_POST["report_option"];
 	$describe=$_POST["txt_describe"];
-	$insQry="INSERT INTO tbl_reportads(reportads_reason,reportads_describe,reportads_date,farmer_id,retailer_id,reportads_product)VALUES('".$reason."','".$describe."',curdate(),'".$fid."','".$_SESSION["rid"]."','".$pid."')";
+	$insQry="INSERT INTO tbl_reportads(reportads_reason,reportads_describe,reportads_date,farmer_id,retailer_id,reportads_ad)VALUES('".$reason."','".$describe."',curdate(),'".$fid."','".$_SESSION["rid"]."','".$pid."')";
 	if($con->query($insQry)){
     ?> <script> window.location.href="mailsent.php"</script> <?php 
     }

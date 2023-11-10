@@ -4,7 +4,7 @@ $currentPage = 'search';
 include('Head.php');
 include("../Assets/Connection/Connection.php");
 
-session_start();
+ 
 $fid=$_GET["fid"];
 
 if(isset($_POST["btn_report"]))

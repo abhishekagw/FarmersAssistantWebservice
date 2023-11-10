@@ -1,7 +1,7 @@
 <?php
 include("../Assets/Connection/Connection.php");
+include("SessionValidator.php");
 
-session_start();
 $selQry="select * from tbl_retailer where retailer_id=".$_SESSION["rid"];
 $result=$con->query($selQry);
 $data=$result->fetch_assoc();
@@ -102,62 +102,16 @@ $data=$result->fetch_assoc();
                                         </ul>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="dd-menu collapsed" href="javascript:void(0)"
-                                            data-bs-toggle="collapse" data-bs-target="#submenu-1-4"
-                                            aria-controls="navbarSupportedContent" aria-expanded="false"
-                                            aria-label="Toggle navigation">Pages</a>
-                                        <ul class="sub-menu mega-menu collapse" id="submenu-1-4">
-                                            <li class="single-block">
-                                                <ul>
-                                                    <li class="mega-menu-title">Essential Pages</li>
-                                                    <li class="nav-item"><a href="about-us.html">About Us</a></li>
-                                                    <li class="nav-item"><a href="item-details.html">Ads Details</a></li>
-                                                    <li class="nav-item"><a href="post-item.html">Ads Post</a></li>
-                                                    <li class="nav-item"><a href="pricing.html">Pricing Table</a></li>
-                                                    <li class="nav-item"><a href="registration.html">Sign Up</a></li>
-                                                    <li class="nav-item"><a href="login.html">Sign In</a></li>
-                                                    <li class="nav-item"><a href="contact.html">Contact Us</a></li>
-                                                    <li class="nav-item"><a href="faq.html">FAQ</a></li>
-                                                    <li class="nav-item"><a href="404.html">Error Page</a></li>
-                                                    <li class="nav-item"><a href="mail-success.html">Mail Success</a>
-                                                    </li>
-                                                    <li class="nav-item"><a href="coming-soon.html">Comming Soon</a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li class="single-block">
-                                                <ul>
-                                                    <li class="mega-menu-title">Dashboard</li>
-                                                    <li class="nav-item"><a href="dashboard.html">Account Overview</a>
-                                                    </li>
-                                                    <li class="nav-item"><a href="profile-settings.html">My Profile</a>
-                                                    </li>
-                                                    <li class="nav-item"><a href="my-items.html">My Ads</a></li>
-                                                    <li class="nav-item"><a href="favourite-items.html">Favorite Ads</a>
-                                                    </li>
-                                                    <li class="nav-item"><a href="post-item.html">Ad post</a></li>
-                                                    <li class="nav-item"><a href="bookmarked-items.html">Bookmarked Ad</a>
-                                                    </li>
-                                                    <li class="nav-item"><a href="messages.html">Messages</a></li>
-                                                    <li class="nav-item"><a href="delete-account.html">Close account</a>
-                                                    </li>
-                                                    <li class="nav-item"><a href="invoice.html">Invoice</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
+                                        <a class="dd-menu collapsed" href="../Guest/faq.php"
+                                            
+                                            aria-label="Toggle navigation">FAQ</a>
+                                       
                                     </li>
                                     <li class="nav-item">
                                         <a class="dd-menu collapsed" href="javascript:void(0)"
-                                            data-bs-toggle="collapse" data-bs-target="#submenu-1-5"
-                                            aria-controls="navbarSupportedContent" aria-expanded="false"
+                                            
                                             aria-label="Toggle navigation">Blog</a>
-                                        <ul class="sub-menu collapse" id="submenu-1-5">
-                                            <li class="nav-item"><a href="blog-grid-sidebar.html">Blog Grid Sidebar</a>
-                                            </li>
-                                            <li class="nav-item"><a href="blog-single.html">Blog Single</a></li>
-                                            <li class="nav-item"><a href="blog-single-sidebar.html">Blog Single
-                                                    Sibebar</a></li>
-                                        </ul>
+                                       
                                     </li>
                                 </ul>
                             </div> <!-- navbar collapse -->
@@ -173,11 +127,11 @@ $data=$result->fetch_assoc();
                                             <i class="lni lni-user"></i> <?php echo "    ".$data["retailer_name"]?>
                                         </a>
                                         <ul class="sub-menu collapse" id="submenu-1-5">
-                                            <li class="nav-item"><a href="blog-grid-sidebar.html">My Account</a>
+                                            <li class="nav-item"><a href="MyAccount.php">My Account</a>
                                             </li>
-                                            <li class="nav-item"><a href="blog-single.html">My Orders</a></li>
-                                            <li class="nav-item"><a href="blog-single-sidebar.html">My Ads</a></li>
-                                            <li class="nav-item"><a href="blog-single-sidebar.html"><i class="lni lni-enter"></i>Logut</a></li>
+                                            <li class="nav-item"><a href="MyOrder.php">My Orders</a></li>
+                                            <li class="nav-item"><a href="myads.php">My Ads</a></li>
+                                            <li class="nav-item"><a href="../Logout.php"><i class="lni lni-enter"></i>Logout</a></li>
                                         </ul>
                                         </ul>
                                     </li>
@@ -423,7 +377,7 @@ while($dataAd=$resAd->fetch_assoc())
                         <!-- Start Single Grid -->
                         <div class="single-grid wow fadeInUp" data-wow-delay=".2s" style="width: 100%; height: 550px; border: 1px solid #ccc; border-radius: 5px;">
                             <div class="image">
-                                <a href="item-details.html" class="thumbnail"><img src="../Assets/Files/Farmer/Products/<?php echo $dataAd["product_photo"] ?>" alt="#" style="height: 300px;width:300px object-fit: cover;"></a>
+                                <a href="viewproduct.php?pid=<?php echo $dataAd['product_id'] ?>" class="thumbnail"><img src="../Assets/Files/Farmer/Products/<?php echo $dataAd["product_photo"] ?>" alt="#" style="height: 300px;width:300px object-fit: cover;"></a>
                                 <div class="author">
                                     
                                     <p class="sale">For Sale</p>

@@ -2,7 +2,7 @@
 ob_start();
 include('Head.php');
 include("../Assets/Connection/Connection.php");
-session_start();
+ 
 if(isset($_POST["btn_change"]))
 {
 	$currentpass=$_POST["txt_currentpassword"];

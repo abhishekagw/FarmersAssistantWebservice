@@ -1,6 +1,6 @@
 <?php
 include("../Assets/Connection/Connection.php");
-session_start();
+ 
 $rid=$_GET["fid"];
 
 if(isset($_POST["btn_submit"]))

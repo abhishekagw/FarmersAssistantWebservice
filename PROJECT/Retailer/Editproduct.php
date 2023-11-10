@@ -3,6 +3,7 @@ ob_start();
 $currentPage = 'search';
 include('Head.php');
 include("../Assets/Connection/Connection.php");
+ 
 if(isset($_GET["eid"]))
 {
 		$selQry="select *  from tbl_request where request_id=".$_GET["eid"];

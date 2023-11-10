@@ -4,7 +4,7 @@ $currentPage = 'search';
 include('Head.php');
 include("../Assets/Connection/Connection.php");
 
-session_start();
+ 
 $selQry="select * from tbl_retailer where retailer_id='".$_SESSION["rid"]."'";
 $result=$con->query($selQry);
 $data=$result->fetch_assoc();
@@ -115,16 +115,22 @@ if(isset($_POST["btn_change"]))
                                 <span><a href="javascript:void(0)">@username</a></span>
                             </h3>
                         </div>
-                            <div class="dashboard-menu">
+                        <div class="dashboard-menu">
                                 <ul>
-                                    <li><a  href="MyAccount.php"><i class="lni lni-dashboard"></i>
+                                <li><a   href="MyAccount.php"><i class="lni lni-dashboard"></i>
                                             Dashboard</a></li>
-                                            <li><a class="active" href="EditProfile.php"><i class="lni lni-pencil-alt"></i> Edit Profile</a> </li>
+                                <li><a class="active" href="EditProfile.php"><i class="lni lni-pencil-alt"></i> Edit Profile</a> </li>
+                                <li><a  href="MyAds.php"><i class="lni lni-dashboard"></i>
+                                            My Ads</a></li>
+                                <li><a  href="MyOrder.php"><i class="lni lni-dashboard"></i>
+                                            My Orders</a></li>
+                                    
+                                            
                                 </ul>
                                             <div class="button">
-                                                <a class="btn" href="javascript:void(0)">Logout</a>
+                                                <a class="btn"  href="../Logout.php">Logout</a>
                                             </div>
-                            </div>
+                        </div>
                     </div>
                 </div>
 

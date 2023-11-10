@@ -1,5 +1,5 @@
 <?php
-include("SessionValidation.php");
+ 
 ?>
 <!DOCTYPE HTML>
 <html>

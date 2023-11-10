@@ -4,7 +4,7 @@ $currentPage = 'search';
 include('Head.php');
 include("../Assets/Connection/Connection.php");
 
-session_start();
+include("SessionValidator.php");
 $selQry="select * from tbl_retailer where retailer_id='".$_SESSION["rid"]."'";
 $result=$con->query($selQry);
 $data=$result->fetch_assoc();

@@ -4,7 +4,7 @@ $currentPage = 'search';
 include('Head.php');
 include("../Assets/Connection/Connection.php");
 
-session_start();
+ 
 ?>
 <!DOCTYPE html>
 <html>
@@ -59,6 +59,22 @@ session_start();
                             <h3><?php echo $dataH["retailer_name"];?></h3>
                                 <span><a href="javascript:void(0)">@username</a></span>
                             </h3>
+                        </div>
+                        <div class="dashboard-menu">
+                                <ul>
+                                <li><a   href="MyAccount.php"><i class="lni lni-dashboard"></i>
+                                            Dashboard</a></li>
+                                <li><a href="EditProfile.php"><i class="lni lni-pencil-alt"></i> Edit Profile</a> </li>
+                                <li><a  href="MyAds.php"><i class="lni lni-dashboard"></i>
+                                            My Ads</a></li>
+                                <li><a class="active" href="MyOrder.php"><i class="lni lni-dashboard"></i>
+                                            My Orders</a></li>
+                                    
+                                            
+                                </ul>
+                                            <div class="button">
+                                                <a class="btn"  href="../Logout.php">Logout</a>
+                                            </div>
                         </div>
     </div>
     </div>

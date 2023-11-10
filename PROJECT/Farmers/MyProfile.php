@@ -2,7 +2,7 @@
 ob_start();
 include('Head.php');
 include("../Assets/Connection/Connection.php");
-session_start();
+ 
 $selQry="select * from tbl_farmer where farmer_id='".$_SESSION["fid"]."'
  ";
 $result=$con->query($selQry);

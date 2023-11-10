@@ -4,7 +4,7 @@ $currentPage = 'search';
 include('Head.php');
 include("../Assets/Connection/Connection.php");
 
-session_start();
+ 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -35,7 +35,7 @@ if(isset($_POST["btn_save"]))
 	$check=$_POST["txt_check"];
 	if($check=="")
 	{
-	$insQry="insert into tbl_request(request_product,request_pricerange,category_id,request_photo,request_quantity,retailer_id,request_description)values('".$name."','".$pricerange."','".$category."','".$photo."','".$quantity."','".$_SESSION["rid"]."','".$description."')";
+	$insQry="insert into tbl_request(request_product,request_pricerange,category_id,request_photo,request_quantity,retailer_id,request_description,request_date)values('".$name."','".$pricerange."','".$category."','".$photo."','".$quantity."','".$_SESSION["rid"]."','".$description."',curdate())";
 	if($con->query($insQry))
 	{
         header("location:myads.php");

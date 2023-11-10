@@ -1,6 +1,6 @@
 <?php
 include("../Assets/Connection/Connection.php");
-session_start();
+ 
 $selQry="select * from tbl_retailer where retailer_id='".$_SESSION["rid"]."'
  ";
 $result=$con->query($selQry);

@@ -1,3 +1,6 @@
+<?php
+ include("SessionValidator.php");
+?>
 <!DOCTYPE html>
 <html class="no-js" lang="zxx">
 
@@ -166,7 +169,7 @@
                                             </li>
                                             <li class="nav-item"><a href="MyOrder.php">My Orders</a></li>
                                             <li class="nav-item"><a href="myads.php">My Ads</a></li>
-                                            <li class="nav-item"><a href="blog-single-sidebar.html"><i class="lni lni-enter"></i>Logut</a></li>
+                                            <li class="nav-item"><a href="../Logout.php"><i class="lni lni-enter"></i>Logout</a></li>
                                         </ul>
                                         </ul>
                                     </li>

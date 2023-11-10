@@ -3,7 +3,7 @@ ob_start();
 $currentPage = 'search';
 include('Head.php');
 include("../Assets/Connection/Connection.php");
-session_start();
+ 
 if(isset($_POST['btn_proceed']))
 {
 	$quantity=$_POST['txt_qty'];

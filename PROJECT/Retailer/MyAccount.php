@@ -4,7 +4,7 @@ $currentPage = 'search';
 include('Head.php');
 include("../Assets/Connection/Connection.php");
 
-session_start();
+
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -50,16 +50,22 @@ session_start();
                                 <span><a href="javascript:void(0)">@username</a></span>
                             </h3>
                         </div>
-                            <div class="dashboard-menu">
+                        <div class="dashboard-menu">
                                 <ul>
-                                    <li><a class="active" href="demoMyAccount.php"><i class="lni lni-dashboard"></i>
+                                <li><a class="active"  href="MyAccount.php"><i class="lni lni-dashboard"></i>
                                             Dashboard</a></li>
-                                            <li><a href="EditProfile.php"><i class="lni lni-pencil-alt"></i> Edit Profile</a> </li>
+                                <li><a href="EditProfile.php"><i class="lni lni-pencil-alt"></i> Edit Profile</a> </li>
+                                <li><a  href="MyAds.php"><i class="lni lni-dashboard"></i>
+                                            My Ads</a></li>
+                                <li><a  href="MyOrder.php"><i class="lni lni-dashboard"></i>
+                                            My Orders</a></li>
+                                    
+                                            
                                 </ul>
                                             <div class="button">
-                                                <a class="btn" href="javascript:void(0)">Logout</a>
+                                                <a class="btn"  href="../Logout.php">Logout</a>
                                             </div>
-                            </div>
+                        </div>
                     </div>
                 </div>
                 <?php

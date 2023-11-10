@@ -1,5 +1,5 @@
 <?php
-session_start();
+ 
 include("..\Assets\Connection\Connection.php");
 if(isset($_POST["btnpay"]))
 {
