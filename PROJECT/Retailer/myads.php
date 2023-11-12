@@ -46,15 +46,20 @@ if(isset($_GET["did"]))
     </div>
     <!-- End Breadcrumbs -->
     <!-- Start Dashboard Section -->
+    <?php
+    $headQry="select * from tbl_retailer where retailer_id=".$_SESSION["rid"];
+    $headResult=$con->query($headQry);
+    $dataH=$headResult->fetch_assoc();
+    ?>
     <section class="dashboard section">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-md-12 col-12">
+            <div class="col-lg-3 col-md-12 col-12">
                     <!-- Start Dashboard Sidebar -->
                     <div class="dashboard-sidebar">
                         <div class="user-image">
-                            <img src="assets/images/dashboard/user-image.jpg" alt="#">
-                            <h3>Steve Aldridge
+                            <img src="../Assets/Files/Retailer/Photo/<?php echo $dataH["retailer_photo"]?>" alt="#">
+                            <h3><?php echo $dataH["retailer_name"];?></h3>
                                 <span><a href="javascript:void(0)">@username</a></span>
                             </h3>
                         </div>

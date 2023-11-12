@@ -59,8 +59,8 @@ include("SessionValidator.php");
                 <div class="col-lg-12">
                     <div class="nav-inner">
                         <nav class="navbar navbar-expand-lg">
-                            <a class="navbar-brand" href="index-2.html">
-                                <img src="../Assets/Template/Main/assets/images/logo/logo.svg" alt="Logo">
+                            <a class="navbar-brand" href="HomePage.php">
+                                <img src="../Assets/Template/Main/assets/images/logo/agriconnect2.png" alt="Logo">
                             </a>
                             <button class="navbar-toggler mobile-menu-btn" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -80,27 +80,18 @@ include("SessionValidator.php");
                                         
                                     </li>
                                     <li class="nav-item">
-                                        <a class="<?php echo ($currentPage === 'search') ? 'active' : 'dd-menu collapsed'; ?>"href="Search.php" aria-label="Toggle navigation">Search</a>
+                                        <a class="<?php echo ($currentPage === 'search') ? 'active' : 'dd-menu collapsed'; ?>"href="RequestSearch.php" aria-label="Toggle navigation">Search</a>
                                     </li>
-                                    <li class="nav-item">
-                                    <a class="<?php echo ($currentPage === 'list') ? 'active' : 'dd-menu collapsed'; ?>"
-                                    href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#submenu-1-1"
-                                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">Lisitngs</a>
-                                        <ul class="sub-menu collapse" id="submenu-1-3">
-                                            <li class="nav-item"><a href="item-listing-grid.html">Ad Grid</a></li>
-                                            <li class="nav-item"><a href="item-listing-list.html">Ad Listing</a></li>
-                                            <li class="nav-item"><a href="item-details.html">Ad Details</a></li>
-                                        </ul>
-                                    </li>
+                                    
                                     <li class="nav-item">
                                     <a class="<?php echo ($currentPage === 'page') ? 'active' : 'dd-menu collapsed'; ?>"
-                                    href="../Guest/faq.php"  aria-label="Toggle navigation">FAQ</a>
+                                    href="faq.php"  aria-label="Toggle navigation">FAQ</a>
                                        
                                     </li>
                                     <li class="nav-item" >
                                         <a class="dd-menu collapsed" href="javascript:void(0)"
                                             
-                                            aria-label="Toggle navigation">Blog</a>
+                                            aria-label="Toggle navigation">Contact Us</a>
                                        
                                     </li>
                                 </ul>

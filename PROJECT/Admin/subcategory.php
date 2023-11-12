@@ -41,20 +41,20 @@ $selQry = "SELECT * FROM tbl_category c
 $result = $con->query($selQry);
 ?>
 
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Subcategory</title>
-    <!-- Add Bootstrap CSS link -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Place</title>
 </head>
 
 <body>
 <div class="container">
     <h1 class="text-center">Subcategory</h1>
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-12">
             <form id="form1" name="form1" method="post" action="">
                 <div class="form-group">
                     <label for="sel_category">Category</label>
@@ -75,17 +75,21 @@ $result = $con->query($selQry);
                 </div>
                 <div class="form-group">
                     <label for="txtcategory">Subcategory</label>
+              
+               
                     <input type="text" class="form-control" id="txtcategory" name="txtcategory" value="<?php echo $subcategory ?>">
                     <input type="hidden" name="txt_check" id="txt_check" value="<?php echo $check ?>">
-                </div>
+                    </div>
+                <div class="form-group text-center mt-3">
                 <button type="submit" name="btnsave" class="btn btn-primary">Save</button>
                 <button type="reset" name="btncancel" class="btn btn-secondary">Cancel</button>
+                </div>
             </form>
         </div>
     </div>
     
-    <h2 class="mt-4">Categories and Subcategories</h2>
-    <table class="table table-bordered">
+    <h2 class="text-center">Categories and Subcategories</h2>
+    <table class="table table-striped mt-3">
         <thead>
             <tr>
                 <th>Sr No</th>

@@ -64,8 +64,8 @@ $data=$result->fetch_assoc();
                 <div class="col-lg-12">
                     <div class="nav-inner">
                         <nav class="navbar navbar-expand-lg">
-                            <a class="navbar-brand" href="index-2.html">
-                                <img src="../Assets/Template/Main/assets/images/logo/logo.svg" alt="Logo">
+                            <a class="navbar-brand" href="HomePage.php">
+                                <img src="../Assets/Template/Main/assets/images/logo/agriconnect2.png" alt="Logo">
                             </a>
                             <button class="navbar-toggler mobile-menu-btn" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -87,73 +87,18 @@ $data=$result->fetch_assoc();
                                         <a href="RequestSearch.php" aria-label="Toggle navigation">Categories</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="dd-menu collapsed" href="javascript:void(0)"
-                                            data-bs-toggle="collapse" data-bs-target="#submenu-1-3"
-                                            aria-controls="navbarSupportedContent" aria-expanded="false"
-                                            aria-label="Toggle navigation">Listings</a>
-                                        <ul class="sub-menu collapse" id="submenu-1-3">
-                                            <li class="nav-item"><a href="item-listing-grid.html">Ad Grid</a></li>
-                                            <li class="nav-item"><a href="item-listing-list.html">Ad Listing</a></li>
-                                            <li class="nav-item"><a href="item-details.html">Ad Details</a></li>
-                                        </ul>
+                                        <a class="dd-menu collapsed" href="faq.php"
+                                            
+                                            aria-label="Toggle navigation">FAQ</a>
+                                        
                                     </li>
+                            
+                                    
                                     <li class="nav-item">
                                         <a class="dd-menu collapsed" href="javascript:void(0)"
-                                            data-bs-toggle="collapse" data-bs-target="#submenu-1-4"
-                                            aria-controls="navbarSupportedContent" aria-expanded="false"
-                                            aria-label="Toggle navigation">Pages</a>
-                                        <ul class="sub-menu mega-menu collapse" id="submenu-1-4">
-                                            <li class="single-block">
-                                                <ul>
-                                                    <li class="mega-menu-title">Essential Pages</li>
-                                                    <li class="nav-item"><a href="about-us.html">About Us</a></li>
-                                                    <li class="nav-item"><a href="item-details.html">Ads Details</a></li>
-                                                    <li class="nav-item"><a href="post-item.html">Ads Post</a></li>
-                                                    <li class="nav-item"><a href="pricing.html">Pricing Table</a></li>
-                                                    <li class="nav-item"><a href="registration.html">Sign Up</a></li>
-                                                    <li class="nav-item"><a href="login.html">Sign In</a></li>
-                                                    <li class="nav-item"><a href="contact.html">Contact Us</a></li>
-                                                    <li class="nav-item"><a href="faq.html">FAQ</a></li>
-                                                    <li class="nav-item"><a href="404.html">Error Page</a></li>
-                                                    <li class="nav-item"><a href="mail-success.html">Mail Success</a>
-                                                    </li>
-                                                    <li class="nav-item"><a href="coming-soon.html">Comming Soon</a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li class="single-block">
-                                                <ul>
-                                                    <li class="mega-menu-title">Dashboard</li>
-                                                    <li class="nav-item"><a href="dashboard.html">Account Overview</a>
-                                                    </li>
-                                                    <li class="nav-item"><a href="profile-settings.html">My Profile</a>
-                                                    </li>
-                                                    <li class="nav-item"><a href="my-items.html">My Ads</a></li>
-                                                    <li class="nav-item"><a href="favourite-items.html">Favorite Ads</a>
-                                                    </li>
-                                                    <li class="nav-item"><a href="post-item.html">Ad post</a></li>
-                                                    <li class="nav-item"><a href="bookmarked-items.html">Bookmarked Ad</a>
-                                                    </li>
-                                                    <li class="nav-item"><a href="messages.html">Messages</a></li>
-                                                    <li class="nav-item"><a href="delete-account.html">Close account</a>
-                                                    </li>
-                                                    <li class="nav-item"><a href="invoice.html">Invoice</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="dd-menu collapsed" href="javascript:void(0)"
-                                            data-bs-toggle="collapse" data-bs-target="#submenu-1-5"
-                                            aria-controls="navbarSupportedContent" aria-expanded="false"
-                                            aria-label="Toggle navigation">Blog</a>
-                                        <ul class="sub-menu collapse" id="submenu-1-5">
-                                            <li class="nav-item"><a href="blog-grid-sidebar.html">Blog Grid Sidebar</a>
-                                            </li>
-                                            <li class="nav-item"><a href="blog-single.html">Blog Single</a></li>
-                                            <li class="nav-item"><a href="blog-single-sidebar.html">Blog Single
-                                                    Sibebar</a></li>
-                                        </ul>
+                                            
+                                            aria-label="Toggle navigation">Contact Us</a>
+                                        
                                     </li>
                                 </ul>
                             </div> <!-- navbar collapse -->
@@ -419,7 +364,7 @@ while($dataAd=$resAd->fetch_assoc())
                         <!-- Start Single Grid -->
                         <div class="single-grid wow fadeInUp" data-wow-delay=".2s" style="width: 100%; height: 550px; border: 1px solid #ccc; border-radius: 5px;">
                             <div class="image">
-                                <a href="item-details.html" class="thumbnail"><img src="../Assets/Files/Retailer/Requests/<?php echo $dataAd["request_photo"] ?>" alt="#" style="height: 300px;width:300px object-fit: cover;"></a>
+                                <a href="viewrequest.php?pid=<?php echo $dataAd['request_id'] ?>" class="thumbnail"><img src="../Assets/Files/Retailer/Requests/<?php echo $dataAd["request_photo"] ?>" alt="#" style="height: 300px;width:300px object-fit: cover;"></a>
                                 <div class="author">
                                     
                                     <p class="sale">Wanted</p>
@@ -633,14 +578,14 @@ while($dataAd2=$reqAd->fetch_assoc())
                                     <!-- Start Single Item -->
                                     <div class="single-item-grid">
                                         <div class="image">
-                                            <a href="item-details.html"><img src="../Assets/Files/Farmer/Products/<?php echo $dataAd2["product_photo"]?>" alt="#" style="height: 200px;width:150px object-fit: cover;"></a>
+                                            <a href="javascript:void(0)"><img src="../Assets/Files/Farmer/Products/<?php echo $dataAd2["product_photo"]?>" alt="#" style="height: 200px;width:150px object-fit: cover;"></a>
                                             <i class=" cross-badge lni lni-bolt"></i>
                                             <span class="flat-badge sale">Sale</span>
                                         </div>
                                         <div class="content">
                                             <a href="javascript:void(0)" class="tag"><?php echo $dataAd2["category_name"]?></a>
                                             <h3 class="title">
-                                                <a href="item-details.html"><?php echo $dataAd2["product_name"]?></a>
+                                                <a href="javascript:void(0)"><?php echo $dataAd2["product_name"]?></a>
                                             </h3>
                                             <p class="location"><a href="javascript:void(0)"><i class="lni lni-map-marker">
                                                     </i><?php echo $dataAd2["district_name"]?></a></p>
@@ -670,14 +615,14 @@ while($dataAd2=$reqAd->fetch_assoc())
                                     <!-- Start Single Item -->
                                     <div class="single-item-grid">
                                         <div class="image">
-                                            <a href="item-details.html"><img src="../Assets/Files/Farmer/Products/<?php echo $dataAd2["product_photo"]?>" alt="#" style="height: 200px;width:150px object-fit: cover;"></a>
+                                            <a href="javascript:void(0)"><img src="../Assets/Files/Farmer/Products/<?php echo $dataAd2["product_photo"]?>" alt="#" style="height: 200px;width:150px object-fit: cover;"></a>
                                             <i class=" cross-badge lni lni-bolt"></i>
                                             <span class="flat-badge sale">Sale</span>
                                         </div>
                                         <div class="content">
                                             <a href="javascript:void(0)" class="tag"><?php echo $dataAd2["category_name"]?></a>
                                             <h3 class="title">
-                                                <a href="item-details.html"><?php echo $dataAd2["product_name"]?></a>
+                                                <a href="javascript:void(0)"><?php echo $dataAd2["product_name"]?></a>
                                             </h3>
                                             <p class="location"><a href="javascript:void(0)"><i class="lni lni-map-marker">
                                                     </i><?php echo $dataAd2["district_name"]?></a></p>
@@ -706,14 +651,14 @@ while($dataAd2=$reqAd->fetch_assoc())
                                     <!-- Start Single Item -->
                                     <div class="single-item-grid">
                                         <div class="image">
-                                            <a href="item-details.html"><img src="../Assets/Files/Farmer/Products/<?php echo $dataAd2["product_photo"]?>" alt="#" style="height: 200px;width:150px object-fit: cover;"></a>
+                                            <a href="javascript:void(0)"><img src="../Assets/Files/Farmer/Products/<?php echo $dataAd2["product_photo"]?>" alt="#" style="height: 200px;width:150px object-fit: cover;"></a>
                                             <i class=" cross-badge lni lni-bolt"></i>
                                             <span class="flat-badge sale">Sale</span>
                                         </div>
                                         <div class="content">
                                             <a href="javascript:void(0)" class="tag"><?php echo $dataAd2["category_name"]?></a>
                                             <h3 class="title">
-                                                <a href="item-details.html"><?php echo $dataAd2["product_name"]?></a>
+                                                <a href="javascript:void(0)"><?php echo $dataAd2["product_name"]?></a>
                                             </h3>
                                             <p class="location"><a href="javascript:void(0)"><i class="lni lni-map-marker">
                                                     </i><?php echo $dataAd2["district_name"]?></a></p>

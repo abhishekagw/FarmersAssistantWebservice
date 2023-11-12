@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 10, 2023 at 11:48 AM
+-- Generation Time: Nov 11, 2023 at 11:04 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.5
 
@@ -125,9 +125,9 @@ CREATE TABLE `tbl_complaintfarmer` (
 --
 
 INSERT INTO `tbl_complaintfarmer` (`complaintfarmer_id`, `complaintfarmer_title`, `complaintfarmer_content`, `complaintfarmer_reply`, `farmer_id`, `retailer_id`, `complaintfarmer_date`) VALUES
-(1, 'Offensive Content', 'scammer', '', 35, 0, '2023-11-01'),
-(7, 'Other', 'bad service', '', 6, 13, '2023-11-01'),
-(8, 'Other', 'sfasf', '', 6, 13, '2023-11-01');
+(1, 'Offensive Content', 'scammer', 'thanks', 35, 1, '2023-11-01'),
+(7, 'Other', 'bad service', 'asjknkajbfjka', 6, 13, '2023-11-01'),
+(8, 'Other', 'sfasf', 'we will check on it', 6, 13, '2023-11-01');
 
 -- --------------------------------------------------------
 
@@ -151,7 +151,7 @@ CREATE TABLE `tbl_complaintretailer` (
 
 INSERT INTO `tbl_complaintretailer` (`complaintretailer_id`, `complaintretailer_title`, `complaintretailer_content`, `complaintretailer_reply`, `farmer_id`, `retailer_id`, `complaintretailer_date`) VALUES
 (1, 'Fake Identity', 'Not same as per the details and bad experience', '', 0, 0, '2023-09-22'),
-(2, 'Offensive Content', 'bad', '', 7, 7, '2023-11-03');
+(2, 'Offensive Content', 'bad', 'ok', 7, 7, '2023-11-03');
 
 -- --------------------------------------------------------
 
@@ -409,7 +409,7 @@ INSERT INTO `tbl_retailer` (`retailer_id`, `retailer_name`, `retailer_email`, `r
 (1, 'Abhishek AGW', 'abhi@gmail.com', '2147483647', 'kerala house', '123', 1, 'IMG_8468.JPG', 'WhatsApp Image 2023-05-02 at 8.01.31 PM.jpeg', 1, '1983-11-05', '0000-00-00'),
 (2, 'Ayyapan nair', 'ayyappan@gmail.com', '2147483647', 'ayyapankovil', '123', 1, '', '', 1, '1985-11-05', '0000-00-00'),
 (3, 'johny', 'john@gmail.com', '2034567', 'john kurishinghl', 'johny', 0, 'jasmine rice.jfif', 'jasmine rice.jfif', 2, '1982-11-05', '0000-00-00'),
-(4, 'mathew john', 'ksebstore@gmail.com', '1234567821', 'mathew kurishinghl', 'mathew', 2, '', '', 4, '1993-11-05', '0000-00-00'),
+(4, 'mathew john', 'ksebstore@gmail.com', '1234567821', 'mathew kurishinghl', 'mathew', 2, '', 'farmer.jfif', 4, '1993-11-05', '0000-00-00'),
 (5, 'Farhan', 'tpf7925@gmail.com', '2147483647', 'ayyapankovil', '123', 0, 'aadhar-card-png-600x426.png', 'photo profile sample.jfif', 5, '1988-11-05', '0000-00-00'),
 (7, 'Rolex', 'abhishekagw777@gmail.com', '145263', 'Gadegts Dude', '1234', 0, 'download.png', 'adhaar2.png', 1, '1993-01-05', '0000-00-00'),
 (13, 'Rajan', 'abhishekgwarrier@gmail.com', '7356567369', 'Rajan House (h)', '1234', 0, 'images.jpeg', 'farmer.jpg', 6, '1987-02-08', '0000-00-00'),

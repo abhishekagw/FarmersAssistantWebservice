@@ -1,3 +1,13 @@
+
+<?php
+include("../Assets/Connection/Connection.php");
+include("SessionValidator.php");
+
+$selQry="select * from tbl_admin where admin_id=".$_SESSION["aid"];
+$result=$con->query($selQry);
+$data=$result->fetch_assoc();
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,7 +44,7 @@
 <body>
 	<div class="pre-loader">
 		<div class="pre-loader-box">
-			<div class="loader-logo"><img src="../Assets/Template/Admin/vendors/images/deskapp-logo.svg" alt=""></div>
+			<div class="loader-logo"><img src="../Assets/Template/Admin/vendors/images/agriconnect4.png" alt=""></div>
 			<div class='loader-progress' id="progress_div">
 				<div class='bar' id='bar1'></div>
 			</div>
@@ -154,9 +164,9 @@
 				<div class="dropdown">
 					<a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
 						<span class="user-icon">
-							<img src="../Assets/Template/Admin/vendors/images/photo1.jpg" alt="">
+							<img src="../Assets/Template/Admin/vendors/images/adminlogo.png" alt="">
 						</span>
-						<span class="user-name">Ross C. Lopez</span>
+						<span class="user-name"><?php echo $data["admin_name"] ?></span>
 					</a>
 					<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
 						<a class="dropdown-item" href="profile.html"><i class="dw dw-user1"></i> Profile</a>
@@ -166,9 +176,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="github-link">
-				<a href="https://github.com/dropways/deskapp" target="_blank"><img src="../Assets/Template/Admin/vendors/images/github.svg" alt=""></a>
-			</div>
+			
 		</div>
 	</div>
 
@@ -249,9 +257,9 @@
 
 	<div class="left-side-bar">
 		<div class="brand-logo">
-			<a href="index.html">
+			<a href="HomePage.php">
 				<img src="../Assets/Template/Admin/vendors/images/deskapp-logo.svg" alt="" class="dark-logo">
-				<img src="../Assets/Template/Admin/vendors/images/deskapp-logo-white.svg" alt="" class="light-logo">
+				<img src="../Assets/Template/Admin/vendors/images/agriconnect3.png" alt="" class="light-logo">
 			</a>
 			<div class="close-sidebar" data-toggle="left-sidebar-close">
 				<i class="ion-close-round"></i>
@@ -336,14 +344,10 @@
 						</ul>
 						
 					</li>
+					
 					<li>
-						<a href="sitemap.html" class="dropdown-toggle no-arrow">
-							<span class="micon dw dw-diagram"></span><span class="mtext">Sitemap</span>
-						</a>
-					</li>
-					<li>
-						<a href="chat.html" class="dropdown-toggle no-arrow">
-							<span class="micon dw dw-chat3"></span><span class="mtext">Chat</span>
+						<a href="ViewComplaint.php" class="dropdown-toggle no-arrow">
+							<span class="micon dw dw-chat3"></span><span class="mtext">Complaints</span>
 						</a>
 					</li>
 					<li>
@@ -354,26 +358,7 @@
 					<li>
 						<div class="dropdown-divider"></div>
 					</li>
-					<li>
-						<div class="sidebar-small-cap">Extra</div>
-					</li>
-					<li>
-						<a href="javascript:;" class="dropdown-toggle">
-							<span class="micon dw dw-edit-2"></span><span class="mtext">Documentation</span>
-						</a>
-						<ul class="submenu">
-							<li><a href="introduction.html">Introduction</a></li>
-							<li><a href="getting-started.html">Getting Started</a></li>
-							<li><a href="color-settings.html">Color Settings</a></li>
-							<li><a href="third-party-plugins.html">Third Party Plugins</a></li>
-						</ul>
-					</li>
-					<li>
-						<a href="https://dropways.github.io/deskapp-free-single-page-website-template/" target="_blank" class="dropdown-toggle no-arrow">
-							<span class="micon dw dw-paper-plane1"></span>
-							<span class="mtext">Landing Page <img src="../Assets/Template/Admin/vendors/images/coming-soon.png" alt="" width="25"></span>
-						</a>
-					</li>
+					
 				</ul>
 			</div>
 		</div>
