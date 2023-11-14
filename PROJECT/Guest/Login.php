@@ -95,7 +95,7 @@ if(isset($_POST["btn_login"]))
                 <div class="col-lg-12">
                     <div class="nav-inner">
                         <nav class="navbar navbar-expand-lg">
-                            <a class="navbar-brand" href="index.php">
+                            <a class="navbar-brand" href="../Index.php">
                                 <img src="../Assets/Template/Main/assets/images/logo/agriconnect2.png" alt="Logo">
                             </a>
                             <button class="navbar-toggler mobile-menu-btn" type="button" data-bs-toggle="collapse"
@@ -123,7 +123,7 @@ if(isset($_POST["btn_login"]))
                                         
                                     </li>
                                     <li class="nav-item">
-                                        <a class="dd-menu collapsed" href="Guest/Login.php"
+                                        <a class="dd-menu collapsed" href="Login.php"
                                             
                                             aria-label="Toggle navigation">Contact US</a>
                                     
@@ -162,7 +162,7 @@ if(isset($_POST["btn_login"]))
                 </div>
                 <div class="col-lg-6 col-md-6 col-12">
                     <ul class="breadcrumb-nav">
-                        <li><a href="index-2.html">Home</a></li>
+                        <li><a href="../Index.php">Home</a></li>
                         <li>Login</li>
                     </ul>
                 </div>

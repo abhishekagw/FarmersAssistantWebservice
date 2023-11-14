@@ -3,6 +3,7 @@ ob_start();
 $currentPage = 'search';
 include('Head.php');
 include("../Assets/Connection/Connection.php");
+$search="";
 
  
 ?>
@@ -35,6 +36,13 @@ include("../Assets/Connection/Connection.php");
     <!-- End Breadcrumbs -->
     
 <h1 align="center">Search</h1>
+<?php
+if(isset($_POST['btn_search']))
+            {
+                $search=$_POST["txt_search"];
+            }
+?>
+
     <!-- Start Category -->
     <section class="category-page section">
             <div class="container">
@@ -44,9 +52,9 @@ include("../Assets/Connection/Connection.php");
                             <!-- Start Single Widget -->
                             <div class="single-widget search">
                                 <h3>Search Ads</h3>
-                                <form action="#">
-                                    <input type="text" placeholder="Search Here...">
-                                    <button type="submit"><i class="lni lni-search-alt"></i></button>
+                                <form method='post'>
+                                    <input type="text" name="txt_search" value="<?php echo "$search" ?>"placeholder="Search Here...">
+                                    <button type="submit" name="btn_search"><i class="lni lni-search-alt"></i></button>
                                 </form>
                             </div>
                             <!-- End Single Widget -->
@@ -55,7 +63,7 @@ include("../Assets/Connection/Connection.php");
                             <h3>All Categories</h3>
                             <div class="form-group">
                                 <label for="sel_category">Select Category</label>
-                                <select class="form-control" name="sel_category" id="sel_category" onchange="Search(this.value)">
+                                <select class="form-control" name="sel_category" id="sel_category" onchange="Search(this.value,'<?php echo $search ?>')">
                                     <option>Select Category</option>
                                     <?php
                                     $selQry = "select * from tbl_category";
@@ -126,7 +134,10 @@ include("../Assets/Connection/Connection.php");
     <div id="mydiv">
         <div class="row">
             <?php
-            $disQry = "select * from tbl_request a inner join  tbl_category c on a.category_id=c.category_id inner join tbl_retailer r on a.retailer_id=r.retailer_id inner join tbl_place p on p.place_id=r.place_id  inner join tbl_district d on p.district_id=d.district_id";
+            
+           
+            
+            $disQry = "select * from tbl_request a inner join  tbl_category c on a.category_id=c.category_id inner join tbl_retailer r on a.retailer_id=r.retailer_id inner join tbl_place p on p.place_id=r.place_id  inner join tbl_district d on p.district_id=d.district_id WHERE request_product LIKE '%$search%'";
             $result1 = $con->query($disQry);
             if ($result1->num_rows > 0) {
                 $i = 0;
@@ -188,20 +199,20 @@ include("../Assets/Connection/Connection.php");
 </body>
 <script src="../Assets/JQ/jQuery.js"></script>
 <script>
-function Search(cid)
+function Search(cid,sid)
 {
 	  var categoryId = document.getElementById('sel_category').value;
    
 
     if (categoryId.toLowerCase() === 'select category') 
 	{
-        window.location.href='demopage.php';
+        window.location.href='RequestSearch.php';
 		return;
         
 	}
 	
 	$.ajax({
-		url:"../Assets/AjaxPages/AjaxRequest.php?cid="+cid,
+		url:"../Assets/AjaxPages/AjaxRequest.php?cid="+cid+"&sid="+sid,
 		success: function(html){
 			$("#mydiv").html(html);
 		}

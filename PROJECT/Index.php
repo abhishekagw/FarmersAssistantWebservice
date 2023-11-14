@@ -59,7 +59,7 @@ include("Assets/Connection/Connection.php");
                 <div class="col-lg-12">
                     <div class="nav-inner">
                         <nav class="navbar navbar-expand-lg">
-                            <a class="navbar-brand" href="index.php">
+                            <a class="navbar-brand" href="Index.php">
                                 <img src="Assets/Template/Main/assets/images/logo/agriconnect2.png" alt="Logo">
                             </a>
                             <button class="navbar-toggler mobile-menu-btn" type="button" data-bs-toggle="collapse"
@@ -86,7 +86,7 @@ include("Assets/Connection/Connection.php");
                                             aria-label="Toggle navigation">FAQ</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="dd-menu collapsed" href="Guest/Login.php"
+                                        <a class="dd-menu collapsed" href="Login.php"
                                             
                                             aria-label="Toggle navigation">Contact US</a>
                                     
