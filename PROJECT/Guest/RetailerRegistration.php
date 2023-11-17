@@ -29,7 +29,7 @@ if(isset($_POST["btn_register"]))
 	$confirmpass=$_POST["txt_confirmpassword"];
 	$place=$_POST["sel_place"];
 
-  $selQry="select * from tbl_farmer where farmer_email='".$email."' ";
+  $selQry="select * from tbl_retailer where retailer_email='".$email."' ";
   $eQry=$con->query($selQry);
   if($eQry->num_rows<1)
   {
@@ -101,7 +101,16 @@ if(isset($_POST["btn_register"]))
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Post Ad</title>
+<title>Registration</title>
+<style>
+    .warning {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+    display: block;
+}
+
+    </style>
 </head>
 <body>
 <!-- Start Breadcrumbs -->
@@ -131,7 +140,7 @@ if(isset($_POST["btn_register"]))
             <div class="col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-12">
                 <div class="form-head">
                     <h4 class="title">Registration</h4>
-                    <form class="default-form-style" method="post" enctype="multipart/form-data">
+                     <form class="default-form-style" method="post" enctype="multipart/form-data" onsubmit="return validateForm()" name="regform">
                         <div class="socila-login">
                             <ul>
                                 <li><a href="javascript:void(0)" class="facebook"><i
@@ -149,14 +158,17 @@ if(isset($_POST["btn_register"]))
                         <div class="form-group">
                             <label>Name</label>
                             <input name="txt_name" type="text">
+                            <span id="nameWarning" class="warning"></span>
                         </div>
                         <div class="form-group">
                             <label>Email</label>
                             <input name="txt_email" type="email">
+                            <span id="emailWarning" class="warning"></span>
                         </div>
                         <div class="form-group">
                             <label>Contact</label>
                             <input name="txt_contact" type="text">
+                            <span id="contactWarning" class="warning"></span>
                         </div>
                         <div class="form-group">
                             <label>Address</label>
@@ -185,6 +197,7 @@ if(isset($_POST["btn_register"]))
 
                                         ?>
                                     </select>
+                                    <span id="districtWarning" class="warning"></span>
                                 </div>
                             </div>
                         </div>
@@ -197,6 +210,7 @@ if(isset($_POST["btn_register"]))
                                     <select name="sel_place" id="sel_place">
                                         <option value="">Select Place</option>
                                     </select>
+                                    <span id="placeWarning" class="warning"></span>
                                 </div>
                             </div>
                         </div>
@@ -204,11 +218,13 @@ if(isset($_POST["btn_register"]))
                             <label>Date-Of-Birth</label>
                             <label for="txt_dob"></label>
                             <input type="date" name="txt_dob" id="txt_dob" />
+                            <span id="dobWarning" class="warning"></span>
                         </div>
                         <label>Gender</label><br>
                         <div class="form">
                             <input type="radio" name="gender" id="btngender" value="Male" />Male
                             <input type="radio" name="gender" id="btngender" value="Female" /> Female
+                            <span id="genderWarning" class="warning"></span>
                         </div><br>
                         <div class="form-group">
                         <label>Photo</label><br>
@@ -231,6 +247,7 @@ if(isset($_POST["btn_register"]))
                         <div class="form-group">
                             <label>Confirm Password</label>
                             <input name="txt_confirmpassword" type="password">
+                            <span id="confirmPasswordWarning" class="warning"></span>
                         </div>
                         <div class="check-and-pass">
                             <div class="row align-items-center">
@@ -295,7 +312,82 @@ if(isset($_POST["btn_register"]))
             }
         });
     }
+
+    
+function validateForm() 
+{
+    var name = document.forms["regform"]["txt_name"].value;
+    var email = document.forms["regform"]["txt_email"].value;
+    var contact = document.forms["regform"]["txt_contact"].value;
+    var district = document.forms["regform"]["sel_category"].value; // Updated field name
+    var place = document.forms["regform"]["sel_place"].value;
+    var dob = document.forms["regform"]["txt_dob"].value;
+    var gender = document.querySelector('input[name="gender"]:checked');
+    var password = document.forms["regform"]["txt_password"].value;
+    var confirmPass = document.forms["regform"]["txt_confirmpassword"].value;
+
+    // Clear previous warnings
+    document.getElementById("nameWarning").innerHTML = "";
+    document.getElementById("emailWarning").innerHTML = "";
+    document.getElementById("contactWarning").innerHTML = "";
+    document.getElementById("districtWarning").innerHTML = "";
+    document.getElementById("placeWarning").innerHTML = "";
+    document.getElementById("dobWarning").innerHTML = "";
+    document.getElementById("genderWarning").innerHTML = "";
+    document.getElementById("confirmPasswordWarning").innerHTML = "";
+
+    // Clear warnings for other fields
+
+    var isValid = true;
+
+    if (name === "") {
+        document.getElementById("nameWarning").innerHTML = "Name must be filled out";
+        isValid = false;
+    }
+
+    // Validate email format
+    var emailFormat = /^\S+@\S+\.\S+$/;
+    if (email === "" || !email.match(emailFormat)) {
+        document.getElementById("emailWarning").innerHTML = "Please enter a valid email address";
+        isValid = false;
+    }
+
+    // Validate contact number format
+    var contactFormat = /^\d{10}$/;
+    if (contact === "" || !contact.match(contactFormat)) {
+        document.getElementById("contactWarning").innerHTML = "Please enter a valid 10-digit contact number";
+        isValid = false;
+    }
+
+    // Validate other fields and formats similarly...
+    if (!district) {
+        document.getElementById("districtWarning").innerHTML = "Please select a District";
+        isValid = false;
+    }
+    if (!place) {
+        document.getElementById("placeWarning").innerHTML = "Please select a Place";
+        isValid = false;
+    }
+
+    if (!dob) {
+        document.getElementById("dobWarning").innerHTML = "Please select a date of birth";
+        isValid = false;
+    }
+
+    if (!gender) {
+        document.getElementById("genderWarning").innerHTML = "Please select a gender";
+        isValid = false;
+    }
+
+    if (password !== confirmPass) {
+        document.getElementById("confirmPasswordWarning").innerHTML = "Passwords do not match";
+        isValid = false;
+    }
+
+    return isValid; // Form is ready to be submitted
+}
 </script>
+
 
 
 <?php

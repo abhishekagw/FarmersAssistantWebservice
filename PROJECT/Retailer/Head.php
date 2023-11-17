@@ -81,12 +81,12 @@
                                     </li>
                                     
                                     <li class="nav-item">
-                                    <a class="<?php echo ($currentPage === 'page') ? 'active' : 'dd-menu collapsed'; ?>"
+                                    <a class="<?php echo ($currentPage === 'faq') ? 'active' : 'dd-menu collapsed'; ?>"
                                     href="faq.php"  aria-label="Toggle navigation">FAQ</a>
                                         
                                     </li>
                                     <li class="nav-item" >
-                                        <a class="dd-menu collapsed" href="javascript:void(0)"
+                                        <a class="<?php echo ($currentPage === 'contact') ? 'active' : 'dd-menu collapsed'; ?>" href="contactus.php"
                                             
                                             aria-label="Toggle navigation">Contact US</a>
                                         

@@ -330,12 +330,22 @@ $data=$result->fetch_assoc();
 						<a href="place.php" class="dropdown-toggle no-arrow">
 							<span class="micon dw dw-list3"></span><span class="mtext">Place</span>
 						</a>
+						<ul class="submenu">
+							<li><a href="ShopOrderpie.php">All Orders</a></li>
+							<li><a href="ShopProductSalesReport.php">All Sales</a></li>
+							
+						</ul>
 						
 					</li>
 					<li class="dropdown">
-						<a href="javascript:;" class="dropdown-toggle no-arrow">
+						<a href="javascript:;" class="dropdown-toggle">
 							<span class="micon dw dw-analytics-21"></span><span class="mtext">Chart</span>
 						</a>
+						<ul class="submenu">
+							<li><a href="ShopOrderpie.php">All Orders</a></li>
+							<li><a href="ShopProductSalesReport.php">All Sales</a></li>
+							
+						</ul>
 						
 					</li>
 					
@@ -352,26 +362,9 @@ $data=$result->fetch_assoc();
 					<li>
 						<div class="dropdown-divider"></div>
 					</li>
-					<li>
-						<div class="sidebar-small-cap">Extra</div>
-					</li>
-					<li>
-						<a href="javascript:;" class="dropdown-toggle">
-							<span class="micon dw dw-edit-2"></span><span class="mtext">Documentation</span>
-						</a>
-						<ul class="submenu">
-							<li><a href="introduction.html">Introduction</a></li>
-							<li><a href="getting-started.html">Getting Started</a></li>
-							<li><a href="color-settings.html">Color Settings</a></li>
-							<li><a href="third-party-plugins.html">Third Party Plugins</a></li>
-						</ul>
-					</li>
-					<li>
-						<a href="https://dropways.github.io/deskapp-free-single-page-website-template/" target="_blank" class="dropdown-toggle no-arrow">
-							<span class="micon dw dw-paper-plane1"></span>
-							<span class="mtext">Landing Page <img src="../Assets/Template/Admin/vendors/images/coming-soon.png" alt="" width="25"></span>
-						</a>
-					</li>
+					
+					
+					
 				</ul>
 			</div>
 		</div>
@@ -383,6 +376,20 @@ $data=$result->fetch_assoc();
 	$result=$con->query($fads);
 	$ads=$result->fetch_assoc();
 
+	$rads="SELECT COUNT(*) AS total_ads_retailers FROM tbl_request";
+	$result1=$con->query($rads);
+	$ads2=$result1->fetch_assoc();
+
+	$tsads="SELECT COUNT(*) AS total_ads_booking FROM tbl_booking where booking_status=2";
+	$result2=$con->query($tsads);
+	$ads3=$result2->fetch_assoc();
+
+	$tusers="SELECT COUNT(*) as total_users FROM (SELECT retailer_id FROM tbl_retailer UNION ALL SELECT farmer_id FROM tbl_farmer) AS combined_users";
+	$result3=$con->query($tusers);
+	$ads4=$result3->fetch_assoc();
+	
+	
+	
 	?>
 
 	<div class="main-container">
@@ -416,57 +423,43 @@ $data=$result->fetch_assoc();
 			</div>
 			<div class="row clearfix progress-box">
 				<div class="col-lg-3 col-md-6 col-sm-12 mb-30">
-					<div class="card-box pd-30 height-100-p">
+					<div class="card-box pd-30 height-100-p" style="height: 150px;">
 						<div class="progress-box text-center">
-							 <input type="text" class="knob dial1" value="80" data-width="120" data-height="120" data-linecap="round" data-thickness="0.12" data-bgColor="#fff" data-fgColor="#1b00ff" data-angleOffset="180" readonly>
-							<h5 class="text-blue padding-top-10 h5">Total Farmer Ads</h5>
-							<span class="d-block"><b><?php echo $ads["total_ads_farmers"];?></b> <i class="fa fa-line-chart text-blue"></i></span>
+							<h5 class="text-blue padding-top-5 h5">Total Farmer Ads</h5>
+							<span class="d-block text-blue" style="font-size: 35px"><b><?php echo $ads["total_ads_farmers"];?></b> <i class="fa fa-line-chart text-blue"></i></span>
 						</div>
 					</div>
 				</div>
 				<div class="col-lg-3 col-md-6 col-sm-12 mb-30">
-					<div class="card-box pd-30 height-100-p">
+					<div class="card-box pd-30 height-100-p"style="height: 150px;">
 						<div class="progress-box text-center">
-							 <input type="text" class="knob dial2" value="70" data-width="120" data-height="120" data-linecap="round" data-thickness="0.12" data-bgColor="#fff" data-fgColor="#00e091" data-angleOffset="180" readonly>
-							<h5 class="text-light-green padding-top-10 h5">Business Captured</h5>
-							<span class="d-block">75% Average <i class="fa text-light-green fa-line-chart"></i></span>
+							 
+							<h5 class="text-light-green padding-top-5 h5">Total Retailer Ads</h5>
+							<span class="d-block text-light-green" style="font-size: 35px"><b><?php echo $ads2["total_ads_retailers"];?> </b><i class="fa text-light-green fa-line-chart"></i></span>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6 col-sm-12 mb-30" >
+					<div class="card-box pd-30 height-100-p" style="height: 150px;">
+						<div class="progress-box text-center">
+							 
+							<h5 class="text-light-orange padding-top-5 h5">Total Succesfull Deals</h5>
+							<span class="d-block text-light-orange" style="font-size: 35px"><b><?php echo $ads3["total_ads_booking"];?> </b> <i class="fa text-light-orange fa-line-chart"></i></span>
 						</div>
 					</div>
 				</div>
 				<div class="col-lg-3 col-md-6 col-sm-12 mb-30">
-					<div class="card-box pd-30 height-100-p">
+					<div class="card-box pd-30 height-100-p" style="height: 150px;">
 						<div class="progress-box text-center">
-							 <input type="text" class="knob dial3" value="90" data-width="120" data-height="120" data-linecap="round" data-thickness="0.12" data-bgColor="#fff" data-fgColor="#f56767" data-angleOffset="180" readonly>
-							<h5 class="text-light-orange padding-top-10 h5">Projects Speed</h5>
-							<span class="d-block">90% Average <i class="fa text-light-orange fa-line-chart"></i></span>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-6 col-sm-12 mb-30">
-					<div class="card-box pd-30 height-100-p">
-						<div class="progress-box text-center">
-							 <input type="text" class="knob dial4" value="65" data-width="120" data-height="120" data-linecap="round" data-thickness="0.12" data-bgColor="#fff" data-fgColor="#a683eb" data-angleOffset="180" readonly>
-							<h5 class="text-light-purple padding-top-10 h5">Panding Orders</h5>
-							<span class="d-block">65% Average <i class="fa text-light-purple fa-line-chart"></i></span>
+							 
+							<h5 class="text-light-purple padding-top-5 h5">Total Users</h5>
+							<span class="text-light-purple d-block" style="font-size: 35px"><b><?php echo $ads4["total_users"];?> </b> <i class="fa text-light-purple fa-line-chart"></i></span>
 						</div>
 					</div>
 				</div>
 			</div>
 			
-			<div class="row">
-				<div class="col-lg-7 col-md-12 col-sm-12 mb-30">
-					<div class="card-box pd-30 height-100-p">
-						<h4 class="mb-30 h4">Compliance Trend</h4>
-						<div id="compliance-trend" class="compliance-trend"></div>
-					</div>
-				</div>
-				<div class="col-lg-5 col-md-12 col-sm-12 mb-30">
-					<div class="card-box pd-30 height-100-p">
-						<h4 class="mb-30 h4">Records</h4>
-						<div id="chart" class="chart"></div>
-					</div>
-				</div>
-			</div>
+			
 			
 		</div>
 	</div>

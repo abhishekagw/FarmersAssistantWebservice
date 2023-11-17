@@ -3,6 +3,7 @@ ob_start();
 $currentPage = 'search';
 include('Head.php');
 include("../Assets/Connection/Connection.php");
+$search="";
 
  
 ?>
@@ -25,7 +26,7 @@ include("../Assets/Connection/Connection.php");
                 </div>
                 <div class="col-lg-6 col-md-6 col-12">
                     <ul class="breadcrumb-nav">
-                        <li><a href="index-2.html">Home</a></li>
+                        <li><a href="HomePage.php">Home</a></li>
                         <li>category</li>
                     </ul>
                 </div>
@@ -35,6 +36,12 @@ include("../Assets/Connection/Connection.php");
     <!-- End Breadcrumbs -->
     
 <h1 align="center">Search</h1>
+<?php
+if(isset($_POST['btn_search']))
+            {
+                $search=$_POST["txt_search"];
+            }
+?>
     <!-- Start Category -->
     <section class="category-page section">
             <div class="container">
@@ -44,9 +51,9 @@ include("../Assets/Connection/Connection.php");
                             <!-- Start Single Widget -->
                             <div class="single-widget search">
                                 <h3>Search Ads</h3>
-                                <form action="#">
-                                    <input type="text" placeholder="Search Here...">
-                                    <button type="submit"><i class="lni lni-search-alt"></i></button>
+                                <form method='post'>
+                                    <input type="text" name="txt_search" value="<?php echo "$search" ?>"placeholder="Search Here...">
+                                    <button type="submit" name="btn_search"><i class="lni lni-search-alt"></i></button>
                                 </form>
                             </div>
                             <!-- End Single Widget -->
@@ -55,7 +62,7 @@ include("../Assets/Connection/Connection.php");
                             <h3>All Categories</h3>
                             <div class="form-group">
                                 <label for="sel_category">Select Category</label>
-                                <select class="form-control" name="sel_category" id="sel_category" onchange="getSubcategory(this.value), Search(this.value, 0)">
+                                <select class="form-control" name="sel_category" id="sel_category" onchange="getSubcategory(this.value), Search(this.value, 0,'<?php echo $search ?>')">
                                     <option>Select Category</option>
                                     <?php
                                     $selQry = "select * from tbl_category";
@@ -76,7 +83,7 @@ include("../Assets/Connection/Connection.php");
                                 <h3>Subcategories</h3>
                                 <div class="form-group">
                                     <label for="sel_subcategory">Select Subcategory</label>
-                                    <select class="form-control" name="sel_subcategory" id="sel_subcategory" onchange="Search(document.getElementById('sel_category').value, this.value)">
+                                    <select class="form-control" name="sel_subcategory" id="sel_subcategory" onchange="Search(document.getElementById('sel_category').value, this.value,'<?php echo $search ?>')">
                                         <option>Select</option>
                                     </select>
                                 </div>
@@ -135,7 +142,7 @@ include("../Assets/Connection/Connection.php");
     <div id="mydiv">
         <div class="row">
             <?php
-            $disQry = "select * from tbl_product a inner join tbl_subcategory s on s.subcategory_id=a.subcategory_id inner join tbl_category c on s.category_id=c.category_id inner join tbl_farmer f on a.farmer_id=f.farmer_id inner join tbl_place p on p.place_id=f.place_id  inner join tbl_district d on p.district_id=d.district_id ";
+            $disQry = "select * from tbl_product a inner join tbl_subcategory s on s.subcategory_id=a.subcategory_id inner join tbl_category c on s.category_id=c.category_id inner join tbl_farmer f on a.farmer_id=f.farmer_id inner join tbl_place p on p.place_id=f.place_id  inner join tbl_district d on p.district_id=d.district_id WHERE product_name LIKE '%$search%'";
             $result1 = $con->query($disQry);
             if ($result1->num_rows > 0) {
                 $i = 0;
@@ -206,7 +213,7 @@ function getSubcategory(did)
 		}
 	});
 }
-function Search(cid,sid)
+function Search(cid,sid,search)
 {
 	  var categoryId = document.getElementById('sel_category').value;
       var subcategoryId = document.getElementById('sel_subcategory').value;
@@ -226,7 +233,7 @@ function Search(cid,sid)
 	}
 	
 	$.ajax({
-		url:"../Assets/AjaxPages/AjaxSearch.php?cid="+cid+"&sid="+sid,
+		url:"../Assets/AjaxPages/AjaxSearch.php?cid="+cid+"&sid="+sid+"&search="+search,
 		success: function(html){
 			$("#mydiv").html(html);
 		}

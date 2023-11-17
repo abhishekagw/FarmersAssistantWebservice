@@ -1,6 +1,6 @@
 <?php
 ob_start();
-$currentPage = 'search';
+
 include('Head.php');
 include("../Assets/Connection/Connection.php");
 
@@ -55,6 +55,15 @@ if(isset($_POST["btn_save"]))
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Untitled Document</title>
+<style>
+    .warning {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+    display: block;
+}
+
+    </style>
 </head>
 <body>
     <!-- Start Breadcrumbs -->
@@ -95,13 +104,14 @@ if(isset($_POST["btn_save"]))
                                             aria-labelledby="nav-item-info-tab">
                                             <!-- Start Post Ad Step One Content -->
                                             <div class="step-one-content">
-                                                <form class="default-form-style" method="post" enctype="multipart/form-data" >
+                                                <form class="default-form-style" method="post" enctype="multipart/form-data" onsubmit="return validateForm()" name="postform">
                                                     <div class="row">
                                                         <div class="col-12">
                                                             <div class="form-group">
                                                                 <label>Add Title*</label>
                                                                 <input name="txt_name" type="text"
                                                                     placeholder="Enter Title">
+                                                                    <span id="nameWarning" class="warning"></span>
                                                             </div>
                                                         </div>
                                                         <div class="col-12">
@@ -128,6 +138,7 @@ if(isset($_POST["btn_save"]))
                                                                         }
                                                                         ?>
                                                                     </select>
+                                                                    <span id="categoryWarning" class="warning"></span>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -145,6 +156,7 @@ if(isset($_POST["btn_save"]))
                                                                 <label>Price Range*</label>
                                                                 <input name="txt_pricerange" type="text"
                                                                     placeholder="Enter Price Range">
+                                                                    <span id="rateWarning" class="warning"></span>
                                                             </div>
                                                         </div>
                                                         <div class="col-12">
@@ -164,10 +176,11 @@ if(isset($_POST["btn_save"]))
 
                                                         <div class="col-12">
                                                             <div class="form-group">
-                                                                <label class="tag-label">Quantity<span>in KG
+                                                                <label class="tag-label">No.of Quantity/<span>in KG
                                                                         </span></label>
                                                                 <input name="txt_quantity" type="text"
                                                                     placeholder="Enter Required Quantity">
+                                                                    <span id="qtyWarning" class="warning"></span>
                                                             </div>
                                                         </div>
                                                         
@@ -182,6 +195,7 @@ if(isset($_POST["btn_save"]))
                                                                     <span class="d-block">Maximum upload file size 10Mb</span>
                                                                 </span>
                                                             </label>
+                                                            <span id="photoWarning" class="warning"></span>
                                                         </div>
 
                                                             
@@ -214,7 +228,7 @@ if(isset($_POST["btn_save"]))
                                                             </div>
                                                             <div class="form-group button mb-0">
                                                                 <button type="submit"
-                                                                    class="btn alt-btn">Previous</button>
+                                                                class="btn alt-btn" onclick="goBack()">Back </button>
                                                                 <button type="submit" class="btn " name="btn_save">Submit Ad</button>
                                                             </div>
                                                         </div>
@@ -238,6 +252,63 @@ if(isset($_POST["btn_save"]))
       
 
 </body>
+<script>
+    function goBack() {
+    
+    window.history.back();
+}
+
+function validateForm() {
+    var name = document.forms["postform"]["txt_name"].value;
+    var category = document.forms["postform"]["sel_category"].value; // Updated field name
+
+    var rate = document.forms["postform"]["txt_pricerange"].value;
+    var photo = document.forms["postform"]["upload"].value;
+    var quantity = document.forms["postform"]["txt_quantity"].value;
+
+    // Clear previous warnings
+    document.getElementById("nameWarning").innerHTML = "";
+    document.getElementById("categoryWarning").innerHTML = "";
+   
+    document.getElementById("qtyWarning").innerHTML = "";
+    document.getElementById("rateWarning").innerHTML = "";
+    document.getElementById("photoWarning").innerHTML = "";
+
+    // Clear warnings for other fields
+
+    var isValid = true;
+
+    if (name === "") {
+        document.getElementById("nameWarning").innerHTML = "Name must be filled out";
+        isValid = false;
+    }
+
+
+    // Validate other fields and formats similarly...
+    if (!category) {
+        document.getElementById("categoryWarning").innerHTML = "Please select a Category";
+        isValid = false;
+    }
+   
+
+    if (!rate) {
+        document.getElementById("rateWarning").innerHTML = "Please enter the Price";
+        isValid = false;
+    }
+
+    if (quantity === "") {
+        document.getElementById("qtyWarning").innerHTML = "Please enter the Quantity";
+        isValid = false;
+    }
+
+    if (!photo) {
+        document.getElementById("photoWarning").innerHTML = "Please Upload A Photo";
+        isValid = false;
+    }
+
+    return isValid; // Form is ready to be submitted
+}
+    </script>
 <?php
 
 include('Foot.php');

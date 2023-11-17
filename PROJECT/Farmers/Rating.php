@@ -20,6 +20,24 @@ include("../Assets/Connection/Connection.php");
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
 <body>
+<div class="breadcrumbs">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-md-6 col-12">
+                    <div class="breadcrumbs-content">
+                        <h1 class="page-title">Rate Here</h1>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-12">
+                    <ul class="breadcrumb-nav">
+                        <li><a href="HomePage.php">Home</a></li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Breadcrumbs -->
     <div class="container">
     	<h1 class="mt-5 mb-5"></h1>
     	<div class="card">
@@ -112,7 +130,7 @@ include("../Assets/Connection/Connection.php");
 	        	</h4>
 	        	<div class="form-group">
 	        		
-                    <input type="text" name="txt_pid" id="txt_pid" value="<?php echo $_GET["rid"];?>" />
+                    <input type="hidden" name="txt_pid" id="txt_pid" value="<?php echo $_GET["rid"];?>" />
 	        	</div>
 	        	<div class="form-group">
 	        		<textarea name="user_review" id="user_review" class="form-control" placeholder="Type Review Here"></textarea>

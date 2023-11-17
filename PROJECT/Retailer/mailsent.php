@@ -2,7 +2,7 @@
 <html class="no-js" lang="zxx">
 
 
-<!-- Mirrored from demo.graygrids.com/themes/classigrids/mail-success.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 10 Oct 2023 16:23:16 GMT -->
+
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="x-ua-compatible" content="ie=edge" />
@@ -85,5 +85,5 @@
 </body>
 
 
-<!-- Mirrored from demo.graygrids.com/themes/classigrids/mail-success.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 10 Oct 2023 16:23:16 GMT -->
+
 </html>

@@ -30,7 +30,7 @@ if(isset($_GET["bid"]))
                 </div>
                 <div class="col-lg-6 col-md-6 col-12">
                     <ul class="breadcrumb-nav">
-                        <li><a href="index-2.html">Home</a></li>
+                        <li><a href="HomePage.php">Home</a></li>
                         <li>Accepted Bookings</li>
                     </ul>
                 </div>
@@ -76,7 +76,7 @@ if(isset($_GET["bid"]))
                 <div class="col-lg-9 col-md-12 col-12">
                     <div class="main-content">
                         <div class="dashboard-block mt-0">
-                            <h3 class="block-title">Ads</h3>
+                            <h3 class="block-title">Ads Responses</h3>
                             <!-- Start Invoice Items Area -->
                             <div class="invoice-items default-list-style">
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 11, 2023 at 11:04 AM
+-- Generation Time: Nov 15, 2023 at 11:36 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.5
 
@@ -151,7 +151,33 @@ CREATE TABLE `tbl_complaintretailer` (
 
 INSERT INTO `tbl_complaintretailer` (`complaintretailer_id`, `complaintretailer_title`, `complaintretailer_content`, `complaintretailer_reply`, `farmer_id`, `retailer_id`, `complaintretailer_date`) VALUES
 (1, 'Fake Identity', 'Not same as per the details and bad experience', '', 0, 0, '2023-09-22'),
-(2, 'Offensive Content', 'bad', 'ok', 7, 7, '2023-11-03');
+(2, 'Offensive Content', 'bad', 'ok', 7, 7, '2023-11-03'),
+(3, 'Other', 'Report Number 1 from farmer sachin', '', 42, 13, '2023-11-15');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_contactus`
+--
+
+CREATE TABLE `tbl_contactus` (
+  `contactus_id` int(11) NOT NULL,
+  `contactus_name` varchar(100) NOT NULL,
+  `contactus_subject` varchar(100) NOT NULL,
+  `contactus_email` varchar(100) NOT NULL,
+  `contactus_message` varchar(1000) NOT NULL,
+  `contactus_phone` varchar(15) NOT NULL,
+  `contactus_farmerid` int(11) NOT NULL,
+  `contactus_retailerid` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_contactus`
+--
+
+INSERT INTO `tbl_contactus` (`contactus_id`, `contactus_name`, `contactus_subject`, `contactus_email`, `contactus_message`, `contactus_phone`, `contactus_farmerid`, `contactus_retailerid`) VALUES
+(1, 'Anamika', 'Bugs', 'ana@gmail.com', 'lot of bugs', '84579652', 7, 0),
+(2, 'Mathew', 'Feedback', 'ksebstore@gmail.com', 'Server Error Comming', '945785623', 0, 4);
 
 -- --------------------------------------------------------
 
@@ -217,7 +243,8 @@ INSERT INTO `tbl_farmer` (`farmer_id`, `farmer_name`, `farmer_email`, `farmer_co
 (23, 'Makkal Selvan', 'ksebstore@gmail.com', '933333339', 'chennai ,tamil nadu', '2000-12-18', 'Male', 'Passport-Size-Photo-with-Coat-Tie.jpg', 'aadhar-card-png-600x426.png', '1234', 3, 0, '0000-00-00'),
 (35, 'Rajan', 'rajan@gmail.com', '74859656', 'koilandy', '0000-00-00', 'Male', 'images.jpeg', 'adhaar2.png', '123', 6, 0, '0000-00-00'),
 (36, 'Ramesh', 'ramesh@gmail.com', '7356567486', 'adholakam(h)', '2000-12-18', 'Male', 'ramesh.jpg', 'rameshadhaar.jpg', '123', 5, 0, '2023-11-10'),
-(37, 'Raju', 'das@gmail.com', '62824167369', 'kotha(h)', '2000-10-20', 'Male', 'raju.jfif', 'rameshadhaar.jpg', '123', 1, 0, '2023-11-10');
+(37, 'Raju', 'das@gmail.com', '62824167369', 'kotha(h)', '2000-10-20', 'Male', 'raju.jfif', 'rameshadhaar.jpg', '123', 1, 0, '2023-11-10'),
+(42, 'Sachin', 'abhishekgwarrier@gmail.com', '9595959595', 'Tendulker House', '2000-12-18', 'Male', 'sachin.jfif', 'rameshadhaar.jpg', '123', 4, 0, '2023-11-15');
 
 -- --------------------------------------------------------
 
@@ -266,7 +293,9 @@ INSERT INTO `tbl_feedbackretailer` (`feedbackretailer_id`, `feedbackretailer_con
 (11, 'vhj', 2, 35, 4, '2023-10-13'),
 (12, 'scd', 3, 35, 4, '2023-10-13'),
 (13, 'DAFSDG', 2, 35, 4, '2023-10-13'),
-(14, 'DAFSDG', 2, 35, 4, '2023-10-13');
+(14, 'DAFSDG', 2, 35, 4, '2023-10-13'),
+(15, 'good service', 3, 7, 2, '2023-11-15'),
+(16, 'good service again', 4, 7, 2, '2023-11-15');
 
 -- --------------------------------------------------------
 
@@ -325,7 +354,8 @@ INSERT INTO `tbl_product` (`product_id`, `product_name`, `product_rate`, `produc
 (10, 'Sehore  Wheat', 900, 'Sihore Wheat.jpeg', 3, 35, 1400, '', 'nice wheat', '2023-10-23'),
 (11, 'Rice', 100, 'rice.jfif', 2, 35, 50, '', 'sxvsd', '2023-10-30'),
 (13, 'Malabari Goat', 750, 'malabarigoat.webp', 7, 7, 2, '0', '2 year old healthy goat', '2023-11-01'),
-(14, 'Buffalo', 20000, 'murrah buffalo.jfif', 7, 36, 1, '0', 'Healthy and Good quality', '0000-00-00');
+(14, 'Buffalo', 20000, 'murrah buffalo.jfif', 7, 36, 1, '0', 'Healthy and Good quality', '2023-10-12'),
+(15, 'Tiger Prawns', 5450, 'prawns.jfif', 5, 42, 5, '0', 'The flower shrimp is a very notable species of prawn. Fully cleaned and deveined', '2023-09-19');
 
 -- --------------------------------------------------------
 
@@ -491,6 +521,12 @@ ALTER TABLE `tbl_complaintretailer`
   ADD PRIMARY KEY (`complaintretailer_id`);
 
 --
+-- Indexes for table `tbl_contactus`
+--
+ALTER TABLE `tbl_contactus`
+  ADD PRIMARY KEY (`contactus_id`);
+
+--
 -- Indexes for table `tbl_district`
 --
 ALTER TABLE `tbl_district`
@@ -588,7 +624,13 @@ ALTER TABLE `tbl_complaintfarmer`
 -- AUTO_INCREMENT for table `tbl_complaintretailer`
 --
 ALTER TABLE `tbl_complaintretailer`
-  MODIFY `complaintretailer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `complaintretailer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `tbl_contactus`
+--
+ALTER TABLE `tbl_contactus`
+  MODIFY `contactus_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tbl_district`
@@ -600,7 +642,7 @@ ALTER TABLE `tbl_district`
 -- AUTO_INCREMENT for table `tbl_farmer`
 --
 ALTER TABLE `tbl_farmer`
-  MODIFY `farmer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `farmer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `tbl_feedbackfarmer`
@@ -612,7 +654,7 @@ ALTER TABLE `tbl_feedbackfarmer`
 -- AUTO_INCREMENT for table `tbl_feedbackretailer`
 --
 ALTER TABLE `tbl_feedbackretailer`
-  MODIFY `feedbackretailer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `feedbackretailer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `tbl_place`
@@ -624,7 +666,7 @@ ALTER TABLE `tbl_place`
 -- AUTO_INCREMENT for table `tbl_product`
 --
 ALTER TABLE `tbl_product`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `tbl_reportads`

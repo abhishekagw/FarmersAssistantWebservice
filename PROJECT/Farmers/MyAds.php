@@ -1,6 +1,5 @@
 <?php
 ob_start();
-$currentPage = 'search';
 include('Head.php');
 include("../Assets/Connection/Connection.php");
 
@@ -32,13 +31,13 @@ if(isset($_GET["did"]))
             <div class="row align-items-center">
                 <div class="col-lg-6 col-md-6 col-12">
                     <div class="breadcrumbs-content">
-                        <h1 class="page-title">Post Your Ad</h1>
+                        <h1 class="page-title">My Ads</h1>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-12">
                     <ul class="breadcrumb-nav">
                         <li><a href="HomePage.php">Home</a></li>
-                        <li>Post Your Ad</li>
+                        <li>My Ads</li>
                     </ul>
                 </div>
             </div>
@@ -83,18 +82,19 @@ if(isset($_GET["did"]))
                     </div>
                     <!-- Start Dashboard Sidebar -->
                 </div>
+                <?php
+                $tads="SELECT COUNT(*) AS total_ads FROM tbl_product where farmer_id=".$_SESSION["fid"];
+                $tresult=$con->query($tads);
+                $tdata=$tresult->fetch_assoc();
+                ?>
                 <div class="col-lg-9 col-md-12 col-12">
                     <div class="main-content">
                         <div class="dashboard-block mt-0">
-                            <h3 class="block-title">My Ads</h3>
+                            <h3 class="block-title"> Ads</h3>
                             <nav class="list-nav">
                                 <ul>
-                                    <li class="active"><a href="javascript:void(0)">All Ads <span>42</span></a></li>
-                                    <li><a href="javascript:void(0)">Published <span>88</span></a></li>
-                                    <li><a href="javascript:void(0)">Featured <span>12</span></a></li>
-                                    <li><a href="javascript:void(0)">Sold <span>02</span></a></li>
-                                    <li><a href="javascript:void(0)">Active <span>45</span></a></li>
-                                    <li><a href="javascript:void(0)">Expired <span>55</span></a></li>
+                                    <li class="active"><a href="javascript:void(0)">All Ads <span><?php echo $tdata["total_ads"] ?></span></a></li>
+                                    
                                 </ul>
                             </nav>
                             <!-- Start Items Area -->
@@ -153,7 +153,7 @@ if(isset($_GET["did"]))
                                     ?>
                                         
                                         <div class="col-lg-2 col-md-2 col-12">
-                                            <p><?php echo $availqty; ?></p>
+                                            <p><?php echo $availqty; ?> Kg</p>
                                         </div>
                                         <div class="col-lg-3 col-md-3 col-12 align-right">
                                             <ul class="action-btn">

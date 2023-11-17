@@ -1,6 +1,8 @@
 <?php
 ob_start();
+$currentPage ='faq';
 include('Head.php');
+
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -20,7 +22,7 @@ include('Head.php');
                 </div>
                 <div class="col-lg-6 col-md-6 col-12">
                     <ul class="breadcrumb-nav">
-                        <li><a href="index-2.html">Home</a></li>
+                        <li><a href="HomePage.php">Home</a></li>
                         <li>FAQ</li>
                     </ul>
                 </div>

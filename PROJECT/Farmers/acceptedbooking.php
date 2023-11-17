@@ -24,7 +24,7 @@ include("../Assets/Connection/Connection.php");
                 </div>
                 <div class="col-lg-6 col-md-6 col-12">
                     <ul class="breadcrumb-nav">
-                        <li><a href="index-2.html">Home</a></li>
+                        <li><a href="HomePage.php">Home</a></li>
                         <li>Accepted Bookings</li>
                     </ul>
                 </div>

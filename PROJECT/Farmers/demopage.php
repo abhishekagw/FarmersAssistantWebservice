@@ -89,6 +89,9 @@ if(isset($_GET["bid"]))
                                         <div class="col-lg-2 col-md-2 col-12">
                                             <p>Retailer Place</p>
                                         </div>
+                                        <div class="col-lg-2 col-md-2 col-12">
+                                            <p>Action</p>
+                                        </div>
                                         <div class="col-lg-1 col-md-2 col-12">
                                             <p>Action</p>
                                         </div>
@@ -127,8 +130,11 @@ if($result->num_rows>0)
                                         <div class="col-lg-2 col-md-2 col-12">
                                             <p><?php echo $data["place_name"] ?></p>
                                         </div>
-                                        <div class="col-lg-1 col-md-2 col-12">
+                                        <div class="col-lg-2 col-md-2 col-12">
                                         <a href="bookinglist.php?bid=<?php echo $data['booking_id']?>" class="btn btn-primary" >Approve</a>
+                                        </div>
+                                        <div class="col-lg-2 col-md-2 col-12">
+                                        <a href="Rating.php?rid=<?php echo $data['retailer_id']?>" class="btn btn-primary" >Rate Us</a>
                                         </div>
                                         
                                     </div>

@@ -1,11 +1,14 @@
 <?php
 include("../Connection/Connection.php");
+$search="";
+$search=$_GET["search"];
 if($_GET['sid']==0 || $_GET['sid']=== 'Select Subcategory')
 {
 ?>
  <div class="row">
             <?php
-            $disQry="select * from tbl_product a inner join tbl_subcategory s on s.subcategory_id=a.subcategory_id inner join tbl_category c on s.category_id=c.category_id inner join tbl_farmer f on a.farmer_id=f.farmer_id inner join tbl_place p on p.place_id=f.place_id  inner join tbl_district d on p.district_id=d.district_id where c.category_id= ".$_GET['cid'];
+           
+            $disQry="select * from tbl_product a inner join tbl_subcategory s on s.subcategory_id=a.subcategory_id inner join tbl_category c on s.category_id=c.category_id inner join tbl_farmer f on a.farmer_id=f.farmer_id inner join tbl_place p on p.place_id=f.place_id  inner join tbl_district d on p.district_id=d.district_id WHERE a.product_name LIKE '%$search%' AND c.category_id= ".$_GET['cid'];
             $result1=$con->query($disQry);
             if ($result1->num_rows > 0) {
                 $i = 0;
@@ -59,7 +62,7 @@ else
   ?>
   <div class="row">
             <?php
-            $disQry="select * from tbl_product a inner join tbl_subcategory s on s.subcategory_id=a.subcategory_id inner join tbl_category c on s.category_id=c.category_id inner join tbl_farmer f on a.farmer_id=f.farmer_id inner join tbl_place p on p.place_id=f.place_id  inner join tbl_district d on p.district_id=d.district_id where c.category_id=".$_GET['cid']." and s.subcategory_id=".$_GET['sid'];
+            $disQry="select * from tbl_product a inner join tbl_subcategory s on s.subcategory_id=a.subcategory_id inner join tbl_category c on s.category_id=c.category_id inner join tbl_farmer f on a.farmer_id=f.farmer_id inner join tbl_place p on p.place_id=f.place_id  inner join tbl_district d on p.district_id=d.district_id where a.product_name LIKE '%$search%' and c.category_id=".$_GET['cid']." and s.subcategory_id=".$_GET['sid'];
             $result1=$con->query($disQry);
             if ($result1->num_rows > 0) {
                 $i = 0;

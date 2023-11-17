@@ -84,12 +84,12 @@ include("SessionValidator.php");
                                     </li>
                                     
                                     <li class="nav-item">
-                                    <a class="<?php echo ($currentPage === 'page') ? 'active' : 'dd-menu collapsed'; ?>"
+                                    <a class="<?php echo ($currentPage === 'faq') ? 'active' : 'dd-menu collapsed'; ?>"
                                     href="faq.php"  aria-label="Toggle navigation">FAQ</a>
                                        
                                     </li>
                                     <li class="nav-item" >
-                                        <a class="dd-menu collapsed" href="javascript:void(0)"
+                                        <a class="<?php echo ($currentPage === 'contactus') ? 'active' : 'dd-menu collapsed'; ?>" href="contactus.php"
                                             
                                             aria-label="Toggle navigation">Contact Us</a>
                                        
@@ -119,7 +119,7 @@ include("SessionValidator.php");
                                 </ul>
                             </div>
                             <div class="button header-button">
-                                <a href="Request.php" class="btn">Post an Ad</a>
+                                <a href="Product.php" class="btn">Post an Ad</a>
                             </div>
                         </nav> <!-- navbar -->
                     </div>

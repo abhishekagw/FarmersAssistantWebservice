@@ -47,7 +47,7 @@ if(isset($_POST['btn_proceed']))
                 </div>
                 <div class="col-lg-6 col-md-6 col-12">
                     <ul class="breadcrumb-nav">
-                        <li><a href="HomePgae.php">Home</a></li>
+                        <li><a href="HomePage.php">Home</a></li>
                         <li><a href="Search.php">Ad</a></li>
                         <li>Booking</li>
                     </ul>

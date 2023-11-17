@@ -72,7 +72,7 @@ if(isset($_POST["btn_send"]))
     {
         ?>
        <script>alert('Verification Successfull');
-	   window.location.href=("../Farmers/thankyou.php");
+	   window.location.href=("../Farmers/thankyou.php?rid=<?php echo $_GET['nid'] ?>");
        </script>
        <?php
     }

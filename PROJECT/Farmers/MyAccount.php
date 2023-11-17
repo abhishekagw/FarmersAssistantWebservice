@@ -25,7 +25,7 @@ include("../Assets/Connection/Connection.php");
                 </div>
                 <div class="col-lg-6 col-md-6 col-12">
                     <ul class="breadcrumb-nav">
-                        <li><a href="index-2.html">Home</a></li>
+                        <li><a href="HomePage.php">Home</a></li>
                         <li>Dashboard</li>
                     </ul>
                 </div>
@@ -95,8 +95,8 @@ include("../Assets/Connection/Connection.php");
                                     </div>
                                     <!-- End Single List -->
                                 </div>
-                                <div class="col-lg-4 col-md-4 col-12">
-                                    <!-- Start Single List -->
+                                <!-- <div class="col-lg-4 col-md-4 col-12">
+                                     
                                     <div class="single-list two">
                                         <div class="list-icon">
                                             <i class="lni lni-bolt"></i>
@@ -106,8 +106,8 @@ include("../Assets/Connection/Connection.php");
                                             <span>Featured Ads </span>
                                         </h3>
                                     </div>
-                                    <!-- End Single List -->
-                                </div>
+                                      
+                                </div> -->
                                 <div class="col-lg-4 col-md-4 col-12">
                                     <!-- Start Single List -->
                                     <div class="single-list three">
@@ -115,7 +115,7 @@ include("../Assets/Connection/Connection.php");
                                             <i class="lni lni-emoji-sad"></i>
                                         </div>
 <?php
-$totalQry2="SELECT COUNT(*) AS total_ads2 FROM tbl_product WHERE farmer_id =".$_SESSION["fid"]." AND product_status = 1";
+$totalQry2="SELECT COUNT(*) AS total_ads2 FROM tbl_product p inner join tbl_booking b on p.product_id=b.product_id WHERE farmer_id =".$_SESSION["fid"]." AND b.booking_status=2";
 $result2=$con->query($totalQry2);
 $data2=$result2->fetch_assoc();
 $tads=$data2["total_ads2"];

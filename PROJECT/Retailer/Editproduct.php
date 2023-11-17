@@ -46,7 +46,7 @@ if(isset($_POST["btn_save"]))
                 </div>
                 <div class="col-lg-6 col-md-6 col-12">
                     <ul class="breadcrumb-nav">
-                        <li><a href="HomePgae.php">Home</a></li>
+                        <li><a href="HomePage.php">Home</a></li>
                         <li>Post Your Ad</li>
                     </ul>
                 </div>
@@ -182,18 +182,11 @@ if(isset($_POST["btn_save"]))
                                                                     placeholder="Type Product tag">
                                                             </div>
                                                         </div>
-                                                        <div class="col-12">
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox" value=""
-                                                                    id="flexCheckDefault">
-                                                                <label class="form-check-label" for="flexCheckDefault">
-                                                                    I agree to all Terms of Use & Posting Rules
-                                                                </label>
-                                                            </div>
+                                                        
                                                             <div class="form-group button mb-0">
                                                                 <button type="reset"
                                                                     class="btn alt-btn" onClick="back()">Back</button>
-                                                                <button type="submit" class="btn " name="btn_save">Submit Ad</button>
+                                                                <button type="submit" class="btn " name="btn_save">Save Changes</button>
                                                             </div>
                                                         </div>
                                                     </div>

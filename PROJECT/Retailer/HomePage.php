@@ -64,7 +64,7 @@ $data=$result->fetch_assoc();
                 <div class="col-lg-12">
                     <div class="nav-inner">
                         <nav class="navbar navbar-expand-lg">
-                            <a class="navbar-brand" href="index-2.html">
+                            <a class="navbar-brand" href="HomePage.php">
                                 <img src="../Assets/Template/Main/assets/images/logo/agriconnect2.png" alt="Logo">
                             </a>
                             <button class="navbar-toggler mobile-menu-btn" type="button" data-bs-toggle="collapse"
@@ -93,7 +93,7 @@ $data=$result->fetch_assoc();
                                        
                                     </li>
                                     <li class="nav-item">
-                                        <a class="dd-menu collapsed" href="javascript:void(0)"
+                                        <a class="dd-menu collapsed" href="contactus.php"
                                             
                                             aria-label="Toggle navigation">Contact Us</a>
                                        
@@ -583,7 +583,7 @@ while($dataAd2=$reqAd->fetch_assoc())
                                         <div class="content">
                                             <a href="javascript:void(0)" class="tag"><?php echo $dataAd2["category_name"]?></a>
                                             <h3 class="title">
-                                                <a href="item-details.html"><?php echo $dataAd2["request_product"]?></a>
+                                                <a href="javascript:void(0)"><?php echo $dataAd2["request_product"]?></a>
                                             </h3>
                                             <p class="location"><a href="javascript:void(0)"><i class="lni lni-map-marker">
                                                     </i><?php echo $dataAd2["district_name"]?></a></p>

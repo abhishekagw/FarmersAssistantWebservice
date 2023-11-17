@@ -31,7 +31,7 @@ $fid=$_GET["fid"];;
                 </div>
                 <div class="col-lg-6 col-md-6 col-12">
                     <ul class="breadcrumb-nav">
-                        <li><a href="HomePgae.php">Home</a></li>
+                        <li><a href="HomePage.php">Home</a></li>
                         <li>Details</li>
                     </ul>
                 </div>

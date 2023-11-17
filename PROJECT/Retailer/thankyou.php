@@ -51,7 +51,7 @@ include("SessionValidator.php");
         <p>Your successful deal has contributed to our community of farmers and retailers.</p>
         <p>Please take a moment to rate your experience with the other party:</p>
         <a href="rate-farmer.html" class="button">Rate Farmer</a>
-        <p>If you have any feedback or suggestions, we'd love to hear from you. Contact us <a href="contact-us.html">here</a>.</p>
+        <p>If you have any feedback or suggestions, we'd love to hear from you. Contact us <a href="contactus.php">here</a>.</p>
         <p>Continue using our platform to connect with other farmers and retailers for your agricultural needs.</p>
     </div>
 </body>

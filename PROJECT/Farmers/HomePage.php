@@ -95,7 +95,7 @@ $data=$result->fetch_assoc();
                             
                                     
                                     <li class="nav-item">
-                                        <a class="dd-menu collapsed" href="javascript:void(0)"
+                                        <a class="dd-menu collapsed" href="contactus.php"
                                             
                                             aria-label="Toggle navigation">Contact Us</a>
                                         

@@ -1,6 +1,5 @@
 <?php
 ob_start();
-$currentPage = 'search';
 include('Head.php');
 include("../Assets/Connection/Connection.php");
 
@@ -35,7 +34,7 @@ include("../Assets/Connection/Connection.php");
                 </div>
                 <div class="col-lg-6 col-md-6 col-12">
                     <ul class="breadcrumb-nav">
-                        <li><a href="index-2.html">Home</a></li>
+                        <li><a href="HomePage.php">Home</a></li>
                         <li>category</li>
                     </ul>
                 </div>
@@ -120,10 +119,12 @@ include("../Assets/Connection/Connection.php");
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-md-3">
+                                            <a href="viewproduct.php?pid=<?php echo $data['product_id'] ?>">
                                                 <img src="../Assets/Files/Farmer/Products/<?php echo $data["product_photo"] ?>" alt="Product Image" class="img-fluid" style="height: 150px;width:auto object-fit: cover;">
+                                            </a>
                                             </div>
                                             <div class="col-md-6">
-                                                <h5 class="card-title"><?php echo $data["product_name"] ?></h5>
+                                                <h5 class="card-title"><a href="viewproduct.php?pid=<?php echo $data['product_id'] ?>"> <?php echo $data["product_name"] ?></a></h5>
                                                 <h6 class="card-subtitle mb-2 text-muted">Farmer: <?php echo $data["farmer_name"] ?></h6>
                                                 <h6 class="card-subtitle mb-2 text-muted">Farmer Place: <?php echo $data["place_name"] ?></h6>
                                                 <p class="card-text">Quantity: <?php echo $data["booking_qty"] ?> Kg</p>
