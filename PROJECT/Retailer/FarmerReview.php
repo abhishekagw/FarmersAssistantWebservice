@@ -105,8 +105,8 @@
                     <i class="fas fa-star star-light submit_star mr-1" id="submit_star_5" data-rating="5"></i>
           </h4>
           <div class="form-group">
-           <input type="text" name="user_name" id="user_name" class="form-control" placeholder="Enter Your Name" />
-                    <input type="hidden" name="txt_pid" id="txt_pid" value="<?php echo $_GET["sid"];?>" />
+           
+                    <input type="hidden" name="txt_pid" id="txt_pid" value="<?php echo $_GET["fid"];?>" />
           </div>
           <div class="form-group">
            <textarea name="user_review" id="user_review" class="form-control" placeholder="Type Review Here"></textarea>
@@ -202,7 +202,7 @@ $(document).ready(function(){
 
         var user_review = $('#user_review').val();
   
-  var product_id = $('#txt_pid').val();
+  var farmer_id = $('#txt_pid').val();
 
         if(user_name == '' || user_review == '')
         {
@@ -212,9 +212,9 @@ $(document).ready(function(){
         else
         {
             $.ajax({
-                url:"../Assets/AjaxPages/AjaxRating.php",
+                url:"../Assets/AjaxPages/AjaxFarmerRating.php",
                 method:"POST",
-                data:{rating_data:rating_data, user_name:user_name, user_review:user_review, product_id:product_id},
+                data:{rating_data:rating_data, user_name:user_name, user_review:user_review, farmer_id:farmer_id},
                 success:function(data)
                 {
                     $('#review_modal').modal('hide');
@@ -235,7 +235,7 @@ $(document).ready(function(){
   var product_id = $('#txt_pid').val();
   
         $.ajax({
-            url:"../Assets/AjaxPages/AjaxRating.php",
+            url:"../Assets/AjaxPages/AjaxFarmerRating.php",
             method:"POST",
             data:{action:'load_data',pid:product_id},
             dataType:"JSON",

@@ -94,8 +94,9 @@ include("../Assets/Connection/Connection.php");
                                     </div>
                                     <!-- End Single List -->
                                 </div>
+                                <!-- Start Single List
                                 <div class="col-lg-4 col-md-4 col-12">
-                                    <!-- Start Single List -->
+                                    
                                     <div class="single-list two">
                                         <div class="list-icon">
                                             <i class="lni lni-bolt"></i>
@@ -105,8 +106,8 @@ include("../Assets/Connection/Connection.php");
                                             <span>Featured Ads </span>
                                         </h3>
                                     </div>
-                                    <!-- End Single List -->
-                                </div>
+                                    
+                                </div>  End Single List -->
                                 <div class="col-lg-4 col-md-4 col-12">
                                     <!-- Start Single List -->
                                     <div class="single-list three">

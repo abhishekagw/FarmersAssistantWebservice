@@ -35,19 +35,19 @@
                             <div class="row">
                                 <div class="col-lg-6 col-md-6 col-12">
                                     <ul>
-                                        <li><a href="javascript:void(0)">Chicago</a></li>
-                                        <li><a href="javascript:void(0)">New York City</a></li>
-                                        <li><a href="javascript:void(0)">San Francisco</a></li>
-                                        <li><a href="javascript:void(0)">Washington</a></li>
-                                        <li><a href="javascript:void(0)">Boston</a></li>
+                                        <li><a href="javascript:void(0)">Kochi</a></li>
+                                        <li><a href="javascript:void(0)">Kottayam</a></li>
+                                        <li><a href="javascript:void(0)">Trivandrum</a></li>
+                                        <li><a href="javascript:void(0)">Kozhikode</a></li>
+                                        <li><a href="javascript:void(0)">Thrissur</a></li>
                                     </ul>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-12">
                                     <ul>
-                                        <li><a href="javascript:void(0)">Los Angeles</a></li>
-                                        <li><a href="javascript:void(0)">Seattle</a></li>
-                                        <li><a href="javascript:void(0)">Las Vegas</a></li>
-                                        <li><a href="javascript:void(0)">San Diego</a></li>
+                                        <li><a href="javascript:void(0)">Alappuzha</a></li>
+                                        <li><a href="javascript:void(0)">Malappuram</a></li>
+                                        <li><a href="javascript:void(0)">Palakkad</a></li>
+                                        <li><a href="javascript:void(0)">Kannur</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -60,9 +60,8 @@
                             <h3>Quick Links</h3>
                             <ul>
                                 <li><a href="javascript:void(0)">About Us</a></li>
-                                <li><a href="javascript:void(0)">How It's Works</a></li>
-                                <li><a href="javascript:void(0)">Login</a></li>
-                                <li><a href="javascript:void(0)">Signup</a></li>
+                                <li><a href="javascript:void(0)">Faqs</a></li>
+                                <li><a href="javascript:void(0)">Search</a></li>
                                 <li><a href="javascript:void(0)">Help & Support</a></li>
                             </ul>
                         </div>
@@ -73,8 +72,11 @@
                         <div class="single-footer f-contact">
                             <h3>Contact</h3>
                             <ul>
-                                <li>23 New Design Str, Lorem Upsum 10<br> Hudson Yards, USA</li>
-                                <li>Tel. +(123) 1800-567-8990 <br> Mail. support@classigrids.com</li>
+                                <li>Agri Connect Pvt. Ltd.
+                                    </br>123 Greenfield Avenue,
+                                    </br>Kottayam, Kerala 686001,
+                                    </br>India</li>
+                                <li>Tel. +(91) 9563-567-8990 <br> Mail. support@agriconnect.com</li>
                             </ul>
                         </div>
                         <!-- End Single Widget -->
@@ -97,8 +99,8 @@
                                     <li><a href="javascript:void(0)">Site Map</a></li>
                                     <li><a href="javascript:void(0)">Information</a></li>
                                 </ul>
-                                <p class="copyright-text">Designed and Developed by <a href="https://graygrids.com/"
-                                        rel="nofollow" target="_blank">GrayGrids</a>
+                                <p class="copyright-text"> Developed by <a href="https://graygrids.com/"
+                                        rel="nofollow" target="_blank">Abhishek</a>
                                 </p>
                                 <ul class="footer-social">
                                     <li><a href="javascript:void(0)"><i class="lni lni-facebook-filled"></i></a></li>

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.3
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 15, 2023 at 11:36 AM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.5
+-- Generation Time: Dec 06, 2023 at 05:49 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -32,7 +32,7 @@ CREATE TABLE `tbl_admin` (
   `admin_name` varchar(50) NOT NULL,
   `admin_email` varchar(50) NOT NULL,
   `admin_password` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `tbl_admin`
@@ -56,7 +56,7 @@ CREATE TABLE `tbl_booking` (
   `booking_status` varchar(100) NOT NULL DEFAULT '0',
   `booking_qty` int(11) NOT NULL,
   `payment_status` int(11) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `tbl_booking`
@@ -80,7 +80,8 @@ INSERT INTO `tbl_booking` (`booking_id`, `product_id`, `retailer_id`, `booking_d
 (24, 9, 13, '2023-10-26', '2', 300, 1),
 (25, 1, 13, '2023-10-29', '0', 10, 0),
 (26, 1, 13, '2023-11-06', '0', 20, 0),
-(27, 5, 13, '2023-11-06', '2', 30, 1);
+(27, 5, 13, '2023-11-06', '2', 30, 1),
+(28, 15, 15, '2023-11-16', '2', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -91,7 +92,7 @@ INSERT INTO `tbl_booking` (`booking_id`, `product_id`, `retailer_id`, `booking_d
 CREATE TABLE `tbl_category` (
   `category_id` int(11) NOT NULL,
   `category_name` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `tbl_category`
@@ -118,7 +119,7 @@ CREATE TABLE `tbl_complaintfarmer` (
   `farmer_id` int(11) NOT NULL,
   `retailer_id` int(11) NOT NULL,
   `complaintfarmer_date` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `tbl_complaintfarmer`
@@ -127,7 +128,7 @@ CREATE TABLE `tbl_complaintfarmer` (
 INSERT INTO `tbl_complaintfarmer` (`complaintfarmer_id`, `complaintfarmer_title`, `complaintfarmer_content`, `complaintfarmer_reply`, `farmer_id`, `retailer_id`, `complaintfarmer_date`) VALUES
 (1, 'Offensive Content', 'scammer', 'thanks', 35, 1, '2023-11-01'),
 (7, 'Other', 'bad service', 'asjknkajbfjka', 6, 13, '2023-11-01'),
-(8, 'Other', 'sfasf', 'we will check on it', 6, 13, '2023-11-01');
+(8, 'Other', 'sfasf', '', 6, 13, '2023-11-01');
 
 -- --------------------------------------------------------
 
@@ -143,7 +144,7 @@ CREATE TABLE `tbl_complaintretailer` (
   `farmer_id` int(11) NOT NULL,
   `retailer_id` int(11) NOT NULL,
   `complaintretailer_date` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `tbl_complaintretailer`
@@ -152,7 +153,7 @@ CREATE TABLE `tbl_complaintretailer` (
 INSERT INTO `tbl_complaintretailer` (`complaintretailer_id`, `complaintretailer_title`, `complaintretailer_content`, `complaintretailer_reply`, `farmer_id`, `retailer_id`, `complaintretailer_date`) VALUES
 (1, 'Fake Identity', 'Not same as per the details and bad experience', '', 0, 0, '2023-09-22'),
 (2, 'Offensive Content', 'bad', 'ok', 7, 7, '2023-11-03'),
-(3, 'Other', 'Report Number 1 from farmer sachin', '', 42, 13, '2023-11-15');
+(3, 'Other', 'Report Number 1 from farmer sachin', 'Ok done', 42, 13, '2023-11-15');
 
 -- --------------------------------------------------------
 
@@ -169,7 +170,7 @@ CREATE TABLE `tbl_contactus` (
   `contactus_phone` varchar(15) NOT NULL,
   `contactus_farmerid` int(11) NOT NULL,
   `contactus_retailerid` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_contactus`
@@ -177,7 +178,9 @@ CREATE TABLE `tbl_contactus` (
 
 INSERT INTO `tbl_contactus` (`contactus_id`, `contactus_name`, `contactus_subject`, `contactus_email`, `contactus_message`, `contactus_phone`, `contactus_farmerid`, `contactus_retailerid`) VALUES
 (1, 'Anamika', 'Bugs', 'ana@gmail.com', 'lot of bugs', '84579652', 7, 0),
-(2, 'Mathew', 'Feedback', 'ksebstore@gmail.com', 'Server Error Comming', '945785623', 0, 4);
+(2, 'Mathew', 'Feedback', 'ksebstore@gmail.com', 'Server Error Comming', '945785623', 0, 4),
+(3, 'Sachin', 'Improvements', 'abhishekgwarrier@gmailcom', 'thanks', '84579652', 42, 0),
+(4, 'Sachin', 'Improvements', 'faa@gm.cm', 'thanks', '84579652', 42, 0);
 
 -- --------------------------------------------------------
 
@@ -188,7 +191,7 @@ INSERT INTO `tbl_contactus` (`contactus_id`, `contactus_name`, `contactus_subjec
 CREATE TABLE `tbl_district` (
   `district_id` int(11) NOT NULL,
   `district_name` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `tbl_district`
@@ -222,7 +225,7 @@ CREATE TABLE `tbl_farmer` (
   `place_id` int(50) NOT NULL,
   `farmer_vstatus` int(11) NOT NULL DEFAULT 0,
   `farmer_date` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `tbl_farmer`
@@ -257,8 +260,17 @@ CREATE TABLE `tbl_feedbackfarmer` (
   `feedbackfarmer_content` varchar(1000) NOT NULL,
   `feedbackfarmer_rating` varchar(200) NOT NULL,
   `farmer_id` int(11) NOT NULL,
-  `retailer_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `retailer_id` int(11) NOT NULL,
+  `review_date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `tbl_feedbackfarmer`
+--
+
+INSERT INTO `tbl_feedbackfarmer` (`feedbackfarmer_id`, `feedbackfarmer_content`, `feedbackfarmer_rating`, `farmer_id`, `retailer_id`, `review_date`) VALUES
+(1, 'nice', '4', 0, 15, '2023-11-19'),
+(2, 'nice', '4', 42, 15, '2023-11-19');
 
 -- --------------------------------------------------------
 
@@ -273,7 +285,7 @@ CREATE TABLE `tbl_feedbackretailer` (
   `farmer_id` int(11) NOT NULL,
   `retailer_id` int(11) NOT NULL,
   `review_date` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `tbl_feedbackretailer`
@@ -295,7 +307,8 @@ INSERT INTO `tbl_feedbackretailer` (`feedbackretailer_id`, `feedbackretailer_con
 (13, 'DAFSDG', 2, 35, 4, '2023-10-13'),
 (14, 'DAFSDG', 2, 35, 4, '2023-10-13'),
 (15, 'good service', 3, 7, 2, '2023-11-15'),
-(16, 'good service again', 4, 7, 2, '2023-11-15');
+(16, 'good service again', 4, 7, 2, '2023-11-15'),
+(17, 'very good and fast,good deals', 4, 42, 15, '2023-11-16');
 
 -- --------------------------------------------------------
 
@@ -307,7 +320,7 @@ CREATE TABLE `tbl_place` (
   `place_id` int(11) NOT NULL,
   `place_name` varchar(100) NOT NULL,
   `district_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `tbl_place`
@@ -338,7 +351,7 @@ CREATE TABLE `tbl_product` (
   `product_status` varchar(100) NOT NULL DEFAULT '0',
   `product_description` varchar(500) NOT NULL,
   `product_date` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `tbl_product`
@@ -355,7 +368,7 @@ INSERT INTO `tbl_product` (`product_id`, `product_name`, `product_rate`, `produc
 (11, 'Rice', 100, 'rice.jfif', 2, 35, 50, '', 'sxvsd', '2023-10-30'),
 (13, 'Malabari Goat', 750, 'malabarigoat.webp', 7, 7, 2, '0', '2 year old healthy goat', '2023-11-01'),
 (14, 'Buffalo', 20000, 'murrah buffalo.jfif', 7, 36, 1, '0', 'Healthy and Good quality', '2023-10-12'),
-(15, 'Tiger Prawns', 5450, 'prawns.jfif', 5, 42, 5, '0', 'The flower shrimp is a very notable species of prawn. Fully cleaned and deveined', '2023-09-19');
+(15, 'Tiger Prawns', 5450, 'prawns.jfif', 5, 42, 5, '1', 'The flower shrimp is a very notable species of prawn. Fully cleaned and deveined', '2023-09-19');
 
 -- --------------------------------------------------------
 
@@ -371,7 +384,7 @@ CREATE TABLE `tbl_reportads` (
   `reportads_describe` varchar(500) NOT NULL,
   `reportads_date` date NOT NULL,
   `reportads_ad` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_reportads`
@@ -398,7 +411,7 @@ CREATE TABLE `tbl_request` (
   `request_photo` varchar(200) NOT NULL,
   `category_id` int(11) NOT NULL,
   `request_description` varchar(1000) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `tbl_request`
@@ -408,7 +421,8 @@ INSERT INTO `tbl_request` (`request_id`, `request_product`, `request_quantity`, 
 (4, 'Domestic Chicken', 5, 13, '2023-10-01', '', 150, '652820368faa4_dchicken.jpeg', 6, 'Need a Domestic Chicken For Shap'),
 (5, 'Rice', 80, 7, '2023-10-03', '', 6500, '6528e99b1be1f_rice.jfif', 1, 'i need bulk of  rice needed for home store'),
 (10, 'Jamnapari', 1, 13, '2023-10-04', '', 30000, 'janmnapari-goat.jpeg', 8, 'good one'),
-(12, 'Vechur Cow', 1, 13, '2023-10-11', '', 70000, 'Vechurcow.jpeg', 8, '3 Year or below aged Vechur cow needed');
+(12, 'Vechur Cow', 1, 13, '2023-10-11', '', 70000, 'Vechurcow.jpeg', 8, '3 Year or below aged Vechur cow needed'),
+(18, 'Healthy Cow Needed', 1, 15, '2023-11-16', '0', 30000, 'cow.jpg', 8, 'Looking for a healthy cow for home,HF cow preffered');
 
 -- --------------------------------------------------------
 
@@ -429,7 +443,7 @@ CREATE TABLE `tbl_retailer` (
   `place_id` int(11) NOT NULL,
   `retailer_dob` date NOT NULL,
   `retailer_date` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `tbl_retailer`
@@ -443,7 +457,8 @@ INSERT INTO `tbl_retailer` (`retailer_id`, `retailer_name`, `retailer_email`, `r
 (5, 'Farhan', 'tpf7925@gmail.com', '2147483647', 'ayyapankovil', '123', 0, 'aadhar-card-png-600x426.png', 'photo profile sample.jfif', 5, '1988-11-05', '0000-00-00'),
 (7, 'Rolex', 'abhishekagw777@gmail.com', '145263', 'Gadegts Dude', '1234', 0, 'download.png', 'adhaar2.png', 1, '1993-01-05', '0000-00-00'),
 (13, 'Rajan', 'abhishekgwarrier@gmail.com', '7356567369', 'Rajan House (h)', '1234', 0, 'images.jpeg', 'farmer.jpg', 6, '1987-02-08', '0000-00-00'),
-(14, 'Anson', 'ansonvarghese845@gmail.com', '8590761272', 'PLAZA KING(h)', '1234', 0, 'rameshadhaar.jpg', 'raju.jfif', 4, '0000-00-00', '2023-11-10');
+(14, 'Anson', 'ansonvarghese845@gmail.com', '8590761272', 'PLAZA KING(h)', '1234', 0, 'rameshadhaar.jpg', 'raju.jfif', 4, '0000-00-00', '2023-11-10'),
+(15, 'Virat', 'amazonprimeop123@gmail.com', '6282416736', 'Kohli House', '123', 0, 'adhaar.jpeg', 'virat.jpg', 3, '0000-00-00', '2023-11-16');
 
 -- --------------------------------------------------------
 
@@ -458,7 +473,7 @@ CREATE TABLE `tbl_review` (
   `user_review` varchar(200) NOT NULL,
   `review_datetime` date NOT NULL,
   `farmer_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -470,7 +485,7 @@ CREATE TABLE `tbl_subcategory` (
   `subcategory_id` int(11) NOT NULL,
   `category_id` int(11) NOT NULL,
   `subcategory_name` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `tbl_subcategory`
@@ -606,7 +621,7 @@ ALTER TABLE `tbl_admin`
 -- AUTO_INCREMENT for table `tbl_booking`
 --
 ALTER TABLE `tbl_booking`
-  MODIFY `booking_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `booking_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `tbl_category`
@@ -630,7 +645,7 @@ ALTER TABLE `tbl_complaintretailer`
 -- AUTO_INCREMENT for table `tbl_contactus`
 --
 ALTER TABLE `tbl_contactus`
-  MODIFY `contactus_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `contactus_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tbl_district`
@@ -648,13 +663,13 @@ ALTER TABLE `tbl_farmer`
 -- AUTO_INCREMENT for table `tbl_feedbackfarmer`
 --
 ALTER TABLE `tbl_feedbackfarmer`
-  MODIFY `feedbackfarmer_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `feedbackfarmer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tbl_feedbackretailer`
 --
 ALTER TABLE `tbl_feedbackretailer`
-  MODIFY `feedbackretailer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `feedbackretailer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `tbl_place`
@@ -666,7 +681,7 @@ ALTER TABLE `tbl_place`
 -- AUTO_INCREMENT for table `tbl_product`
 --
 ALTER TABLE `tbl_product`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `tbl_reportads`
@@ -678,13 +693,13 @@ ALTER TABLE `tbl_reportads`
 -- AUTO_INCREMENT for table `tbl_request`
 --
 ALTER TABLE `tbl_request`
-  MODIFY `request_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `request_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `tbl_retailer`
 --
 ALTER TABLE `tbl_retailer`
-  MODIFY `retailer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `retailer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `tbl_review`

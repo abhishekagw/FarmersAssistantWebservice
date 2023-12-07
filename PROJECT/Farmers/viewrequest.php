@@ -10,6 +10,7 @@ include("../Assets/Connection/Connection.php");
 <html xmlns="http://www.w3.org/1999/xhtml"class="no-js" lang="zxx">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>  
 <title>Ads</title>
 </head>
 
@@ -149,12 +150,29 @@ include("../Assets/Connection/Connection.php");
                         <div class="item-details-sidebar">
                             <!-- Start Single Block -->
                             <div class="single-block author">
-                                <h3>Farmer</h3>
+                                <h3>Retailer</h3>
                                 <div class="content">
                                 <a href="UserProfile.php?rid=<?php echo $data1["retailer_id"];?>" >
                                     <img src="../Assets/Files/Retailer/Photo/<?php echo $data1["retailer_photo"]?>" alt="#">
                                     <h4><?php echo $data1["retailer_name"]?></h4>
-                                    <span>Member Since May 15,2023</span></a><br>
+                                    <?php
+                                    if($data1["retailer_vstatus"]==1)
+                                    {
+                                    ?>
+                                    Verified Retailer<i class='fa fa-check-circle green-color'></i>
+                                    <?php
+                                    }
+                                    else{
+                                        ?>
+                                        Not Verified <i class='fa fa-times-circle red-color'></i>
+                                        <?php
+                                    }
+                                    
+                                        $originalDate = $data1["retailer_date"];
+                                        $dateObject = new DateTime($originalDate);
+                                        $formattedDate =  $dateObject->format('F Y');
+                                        ?>
+                                    <span>Member Since <?php echo $formattedDate;?></span></a><br>
                                     <a href="Userprofile.php?rid=<?php echo $data1["retailer_id"];?>" class="see-all">See All Ads</a>
                                 </div>
                             </div>

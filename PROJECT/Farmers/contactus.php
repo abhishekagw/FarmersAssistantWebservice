@@ -62,7 +62,7 @@ if(isset($_POST['btn_submit']) )
                         <div class="single-head">
                             <div class="contant-inner-title">
                                 <h2>Our Contacts & Location</h2>
-                                <p>Business consulting excepteur sint occaecat cupidatat consulting non proident.</p>
+                                <p>Expert business consulting services, providing tailored solutions to meet your unique needs. Our team is dedicated to helping you navigate the complexities of your industry with precision and innovation. Get in touch with us today to explore how we can elevate your business.</p>
                             </div>
                             <div class="single-info">
                                 <h3>Opening hours</h3>
@@ -74,10 +74,13 @@ if(isset($_POST['btn_submit']) )
                             <div class="single-info">
                                 <h3>Contact info</h3>
                                 <ul>
-                                    <li>77408 Satterfield Motorway Suite</li>
-                                    <li>469 New Antonetta, BC K3L6P6</li>
-                                    <li><a href="mailto:info@yourwebsite.com">example@info.com</a></li>
-                                    <li><a href="tel:(617) 495-9400-326">(617) 495-9400-326</a></li>
+                                <li>Agri Connect Pvt. Ltd.
+                                    </br>123 Greenfield Avenue,
+                                    </br>Kottayam, Kerala 686001,
+                                    India</li>
+                                    
+</br>
+                                    <li>Tel. +(91) 9563-567-8990 <br> Mail. support@agriconnect.com</li>
                                 </ul>
                             </div>
                             <div class="single-info contact-social">
@@ -95,8 +98,8 @@ if(isset($_POST['btn_submit']) )
                         <div class="form-main">
                             <div class="form-title">
                                 <h2>Get in Touch</h2>
-                                <p>There are many variations of passages of Lorem Ipsum available, but the majority have
-                                    suffered alteration in some form.</p>
+                                <p>You can reach out to Agriconnect's Customer Support Team by submitting this form. 
+                                    This is a convenient way to communicate your queries, seek assistance, or report any issues..</p>
                             </div>
                             <form class="form" method="post" onsubmit="return validateForm()" name="contactform">
                                 <div class="row">
@@ -149,9 +152,7 @@ if(isset($_POST['btn_submit']) )
     <div class="map-section">
         <div class="map-container">
             <div class="mapouter">
-                <div class="gmap_canvas"><iframe width="100%" height="500" id="gmap_canvas"
-                        src="https://maps.google.com/maps?q=New%20York&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=&amp;output=embed"
-                        frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a
+                <div class="gmap_canvas"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3930.817521351808!2d76.5138575750294!3d9.865671790233012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b07d910540b4869%3A0x64fed0c4f2ffaa31!2sBaselios%20Poulose%20II%20Catholicos%20College!5e0!3m2!1sen!2sin!4v1701878097580!5m2!1sen!2sin" width="100%" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe><a
                         href="https://123movies-to.com/">123movies old site</a>
                     <style>
                         .mapouter {

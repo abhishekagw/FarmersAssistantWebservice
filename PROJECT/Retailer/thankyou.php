@@ -1,5 +1,9 @@
 <?php
+ob_start();
+include('Head.php');
 include("SessionValidator.php");
+include("../Assets/Connection/Connection.php");
+ 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,7 +12,7 @@ include("SessionValidator.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thank You for Using Our Site</title>
     <style>
-        body {
+        body.tbody {
             font-family: Arial, sans-serif;
             background-color: #f0f0f0;
             margin: 0;
@@ -16,7 +20,7 @@ include("SessionValidator.php");
             text-align: center;
         }
 
-        .container {
+        .tcontainer {
             max-width: 600px;
             margin: 0 auto;
             background-color: #fff;
@@ -25,7 +29,7 @@ include("SessionValidator.php");
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
-        h1 {
+        .thead {
             color: #333;
         }
 
@@ -35,7 +39,7 @@ include("SessionValidator.php");
             margin: 20px 0;
         }
 
-        .button {
+        .rbutton {
             background-color: #0074cc;
             color: #fff;
             padding: 10px 20px;
@@ -44,15 +48,47 @@ include("SessionValidator.php");
         }
     </style>
 </head>
-<body>
-    <div class="container">
-        <h1>Thank You for Using Our Site</h1>
+<body class="tbody">
+<div class="breadcrumbs">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-md-6 col-12">
+                    <div class="breadcrumbs-content">
+                        <h1 class="page-title">Succesfull !</h1>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-12">
+                    <ul class="breadcrumb-nav">
+                        <li><a href="HomePage.php">Home</a></li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Breadcrumbs -->
+<!-- Start Dashboard Section -->
+<section class="dashboard section">
+        <div class="container">
+            <div class="row">
+    <div class="tcontainer">
+        <h1 class="thead">Thank You for Using Our Site</h1>
+    
         <p>We appreciate your business and trust in our platform.</p>
         <p>Your successful deal has contributed to our community of farmers and retailers.</p>
         <p>Please take a moment to rate your experience with the other party:</p>
-        <a href="rate-farmer.html" class="button">Rate Farmer</a>
+        <a href="FarmerReview.php?fid=<?php echo $_GET['fid'] ?>" class="rbutton"> Rate Farmer </a>
         <p>If you have any feedback or suggestions, we'd love to hear from you. Contact us <a href="contactus.php">here</a>.</p>
         <p>Continue using our platform to connect with other farmers and retailers for your agricultural needs.</p>
     </div>
+    </div>
+    </div>
+</section>
 </body>
+<?php
+
+include('Foot.php');
+ob_end_flush();
+?>
 </html>
+

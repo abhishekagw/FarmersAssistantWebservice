@@ -134,50 +134,32 @@ $tads=$data2["total_ads2"];
                         <div class="row">
                             <div class="col-lg-6 col-md-12 col-12">
                                 <!-- Start Activity Log -->
-                                <div class="activity-log dashboard-block">
-                                    <h3 class="block-title">My Activity Log</h3>
+                                <div class="recent-items dashboard-block">
+                                    <h3 class="block-title">Top Ads</h3>
                                     <ul>
+                                    <?php
+ $recQry="SELECT * FROM tbl_product WHERE farmer_id =".$_SESSION['fid'].  " ORDER BY product_stock DESC";
+ $result0=$con->query($recQry);
+ if($result0->num_rows>0)
+ {
+ while($data3=$result0->fetch_assoc())
+ {
+
+                
+                ?>
                                         <li>
-                                            <div class="log-icon">
-                                                <i class="lni lni-alarm"></i>
+                                            <div class="image">
+                                                <a href="javascript:void(0)"><img src="../Assets/Files/Farmer/Products/<?php echo $data3["product_photo"]?>" alt="#"></a>
                                             </div>
-                                            <a href="javascript:void(0)" class="title">Your Profile Updated!</a>
-                                            <span class="time">12 Minutes Ago</span>
-                                            <span class="remove"><a href="javascript:void(0)"><i class="lni lni-close"></i></a></span>
+                                            <a href="javascript:void(0)" class="title"><?php echo $data3["product_name"]; ?></a>
+                                            <span class="time"><?php echo $data3['product_date']; ?></span>
                                         </li>
-                                        <li>
-                                            <div class="log-icon">
-                                                <i class="lni lni-alarm"></i>
-                                            </div>
-                                            <a href="javascript:void(0)" class="title">You change your password</a>
-                                            <span class="time">59 Minutes Ago</span>
-                                            <span class="remove"><a href="javascript:void(0)"><i class="lni lni-close"></i></a></span>
-                                        </li>
-                                        <li>
-                                            <div class="log-icon">
-                                                <i class="lni lni-alarm"></i>
-                                            </div>
-                                            <a href="javascript:void(0)" class="title">Your ads approved!</a>
-                                            <span class="time">5 Hours Ago</span>
-                                            <span class="remove"><a href="javascript:void(0)"><i class="lni lni-close"></i></a></span>
-                                        </li>
-                                        <li>
-                                            <div class="log-icon">
-                                                <i class="lni lni-alarm"></i>
-                                            </div>
-                                            <a href="javascript:void(0)" class="title">You submit a new ads</a>
-                                            <span class="time">8 hours Ago</span>
-                                            <span class="remove"><a href="javascript:void(0)"><i class="lni lni-close"></i></a></span>
-                                        </li>
-                                        <li>
-                                            <div class="log-icon">
-                                                <i class="lni lni-alarm"></i>
-                                            </div>
-                                            <a href="javascript:void(0)" class="title">You subscribe as a pro user!</a>
-                                            <span class="time">1 day Ago</span>
-                                            <span class="remove"><a href="javascript:void(0)"><i class="lni lni-close"></i></a></span>
-                                        </li>
+                                        <?php
+ }
+}
+                            ?>
                                     </ul>
+                                    
                                 </div>
                                 <!-- End Activity Log -->
                             </div>

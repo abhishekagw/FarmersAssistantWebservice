@@ -13,7 +13,7 @@ $data=$result->fetch_assoc();
 <head>
 	<!-- Basic Page Info -->
 	<meta charset="utf-8">
-	<title>DeskApp - Bootstrap Admin Dashboard HTML Template</title>
+	<title>AgriConnect- Admin Dashboard </title>
 
 	<!-- Site favicon -->
 	<link rel="apple-touch-icon" sizes="180x180"  href="../Assets/Template/Admin/vendors/images/apple-touch-icon.png">
@@ -169,9 +169,9 @@ $data=$result->fetch_assoc();
 						<span class="user-name"><?php echo $data["admin_name"] ?></span>
 					</a>
 					<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-						<a class="dropdown-item" href="profile.html"><i class="dw dw-user1"></i> Profile</a>
-						<a class="dropdown-item" href="profile.html"><i class="dw dw-settings2"></i> Setting</a>
-						<a class="dropdown-item" href="faq.html"><i class="dw dw-help"></i> Help</a>
+						<a class="dropdown-item" href="javascript:void(0);"><i class="dw dw-user1"></i> Profile</a>
+						<a class="dropdown-item" href="javascript:void(0);"><i class="dw dw-settings2"></i> Setting</a>
+						<a class="dropdown-item" href="javascript:void(0);"><i class="dw dw-help"></i> Help</a>
 						<a class="dropdown-item" href="../Logout.php"><i class="dw dw-logout"></i> Log Out</a>
 					</div>
 				</div>
@@ -304,7 +304,7 @@ $data=$result->fetch_assoc();
 					</li>
 					<li class="dropdown">
 						<a href="RejectedRetailers.php" class="dropdown-toggle no-arrow">
-							<span class="micon dw dw-paint-brush"></span><span class="mtext">Rejected FarmRetailers</span>
+							<span class="micon dw dw-paint-brush"></span><span class="mtext">Rejected Retailers</span>
 						</a>
 						
 					</li>
@@ -351,7 +351,7 @@ $data=$result->fetch_assoc();
 						</a>
 					</li>
 					<li>
-						<a href="invoice.html" class="dropdown-toggle no-arrow">
+						<a href="javascript:void(0);" class="dropdown-toggle no-arrow">
 							<span class="micon dw dw-invoice"></span><span class="mtext">Invoice</span>
 						</a>
 					</li>

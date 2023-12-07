@@ -66,7 +66,21 @@ $result2 = mysqli_query($con, $query2);
                     echo "<td>";
                     echo '<div  class="form-group mt-3">';
                     ?>
-                 <button class="btn btn-primary" data-toggle="modal" data-target="#replyModal<?php echo $j ?>">Reply</button>
+                 <button class="btn btn-primary" data-toggle="modal" data-target="#replyModal<?php echo $j ?>">
+                 <?php 
+                 if($row['complaintfarmer_reply']== null)
+                 {
+                    ?>
+                    Reply
+                    <?php
+                    }
+                    else 
+                    { 
+                        ?>
+                        Update
+                    <?php
+                    }?>
+                </button>
                  <?php
                     echo '</div>';
                    /* echo '<div  class="form-group ">';
@@ -137,7 +151,22 @@ $result2 = mysqli_query($con, $query2);
                     echo "<td>";
                     echo '<div  class="form-group mt-3">';
                     ?>
-                 <button class="btn btn-primary" data-toggle="modal" data-target="#replyModal<?php echo $i ?>">Reply</button>
+                 <button class="btn btn-primary" data-toggle="modal" data-target="#replyModal<?php echo $i ?>">
+                 
+                 <?php 
+                 if($row2['complaintretailer_reply']== null)
+                 {
+                    ?>
+                    Reply
+                    <?php
+                    }
+                    else 
+                    { 
+                        ?>
+                        Update
+                    <?php
+                    }?> 
+                </button>
                  <?php
                     echo '</div>';
                   /*  echo '<div  class="form-group ">';

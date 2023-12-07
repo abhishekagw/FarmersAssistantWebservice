@@ -342,7 +342,7 @@ $data=$result->fetch_assoc();
                 <div class="row">
 
 <?php
-$selAd="select * from tbl_request a inner join  tbl_category c on a.category_id=c.category_id inner join tbl_retailer r on a.retailer_id=r.retailer_id inner join tbl_place p on p.place_id=r.place_id  inner join tbl_district d on p.district_id=d.district_id";
+$selAd="select * from tbl_request a inner join  tbl_category c on a.category_id=c.category_id inner join tbl_retailer r on a.retailer_id=r.retailer_id inner join tbl_place p on p.place_id=r.place_id  inner join tbl_district d on p.district_id=d.district_id limit 8";
 $resAd=$con->query($selAd);
 while($dataAd=$resAd->fetch_assoc())
 {
@@ -395,23 +395,28 @@ while($dataAd=$resAd->fetch_assoc())
             <div class="row">
                 <div class="col-12">
                     <div class="section-title">
-                        <h2 class="wow fadeInUp" data-wow-delay=".4s">Browse By Cities</h2>
+                        <h2 class="wow fadeInUp" data-wow-delay=".4s">Top Cities</h2>
                         <p class="wow fadeInUp" data-wow-delay=".6s">Find specific agricultural ads and retailer requirements based on location - browse by cities for localized opportunities.</p>
                     </div>
                 </div>
             </div>
+            <?php
+             $tads="SELECT COUNT(*) AS total_ads FROM tbl_product p inner join tbl_farmer f on f.farmer_id=p.farmer_id inner join tbl_place a on a.place_id=f.place_id inner join tbl_district d on d.district_id=a.district_id where d.district_id=1";
+             $tresult=$con->query($tads);
+             $tdata=$tresult->fetch_assoc();
+            ?>
             <div class="row ">
                 <div class="col-lg-4 col-md-4 col-12">
                     <!-- Start Single City -->
                     <div class="single-city wow fadeInUp" data-wow-delay=".2s">
                         <a href="RequestSearch.php" class="info-box">
                             <div class="image">
-                                <img src="../Assets/Template/Main/assets/images/cities/img1.jpg" alt="#">
+                                <img src="../Assets/Template/Main/assets/images/cities/kochi.jpg" alt="#">
                             </div>
                             <div class="content">
                                 <h4 class="name">
-                                    New York City
-                                    <span>155 Ads</span>
+                                    Ernakulam
+                                    <span><?php echo $tdata["total_ads"] ?> ads</span>
                                 </h4>
                             </div>
                             <div class="more-btn">
@@ -423,15 +428,20 @@ while($dataAd=$resAd->fetch_assoc())
                 </div>
                 <div class="col-lg-4 col-md-4 col-12">
                     <!-- Start Single City -->
+                    <?php
+             $tads1="SELECT COUNT(*) AS total_ads FROM tbl_product p inner join tbl_farmer f on f.farmer_id=p.farmer_id inner join tbl_place a on a.place_id=f.place_id inner join tbl_district d on d.district_id=a.district_id where d.district_id=9";
+             $tresult1=$con->query($tads1);
+             $tdata1=$tresult1->fetch_assoc();
+            ?>
                     <div class="single-city wow fadeInUp" data-wow-delay=".4s">
                         <a href="RequestSearch.php" class="info-box">
                             <div class="image">
-                                <img src="../Assets/Template/Main/assets/images/cities/img2.jpg" alt="#">
+                                <img src="../Assets/Template/Main/assets/images/cities/kottayam.jpg" alt="#">
                             </div>
                             <div class="content">
                                 <h4 class="name">
-                                    Philadelphia
-                                    <span>288 Ads</span>
+                                    Kottayam
+                                    <span><?php echo $tdata1["total_ads"] ?> ads</span>
                                 </h4>
                             </div>
                             <div class="more-btn">
@@ -443,15 +453,20 @@ while($dataAd=$resAd->fetch_assoc())
                 </div>
                 <div class="col-lg-4 col-md-4 col-12">
                     <!-- Start Single City -->
+                    <?php
+             $tads2="SELECT COUNT(*) AS total_ads FROM tbl_product p inner join tbl_farmer f on f.farmer_id=p.farmer_id inner join tbl_place a on a.place_id=f.place_id inner join tbl_district d on d.district_id=a.district_id where d.district_id=12";
+             $tresult2=$con->query($tads2);
+             $tdata2=$tresult2->fetch_assoc();
+            ?>
                     <div class="single-city wow fadeInUp" data-wow-delay=".6s">
                         <a href="RequestSearch.php" class="info-box">
                             <div class="image">
-                                <img src="../Assets/Template/Main/assets/images/cities/img3.jpg" alt="#">
+                                <img src="../Assets/Template/Main/assets/images/cities/trivandrum.jpg" alt="#">
                             </div>
                             <div class="content">
                                 <h4 class="name">
-                                    Los Angeles
-                                    <span>95 Ads</span>
+                                    Trivandrum
+                                    <span><?php echo $tdata2["total_ads"]  ?> ads</span>
                                 </h4>
                             </div>
                             <div class="more-btn">
@@ -463,15 +478,20 @@ while($dataAd=$resAd->fetch_assoc())
                 </div>
                 <div class="col-lg-6 col-md-6 col-12">
                     <!-- Start Single City -->
+                    <?php
+             $tads3="SELECT COUNT(*) AS total_ads FROM tbl_product p inner join tbl_farmer f on f.farmer_id=p.farmer_id inner join tbl_place a on a.place_id=f.place_id inner join tbl_district d on d.district_id=a.district_id where d.district_id=2";
+             $tresult3=$con->query($tads3);
+             $tdata3=$tresult3->fetch_assoc();
+            ?>
                     <div class="single-city wow fadeInUp" data-wow-delay=".2s">
                         <a href="RequestSearch.php" class="info-box">
                             <div class="image">
-                                <img src="../Assets/Template/Main/assets/images/cities/img4.jpg" alt="#">
+                                <img src="../Assets/Template/Main/assets/images/cities/kollam.jpg" alt="#">
                             </div>
                             <div class="content">
                                 <h4 class="name">
-                                    San Francisco
-                                    <span>355 Ads</span>
+                                    Kollam
+                                    <span><?php echo $tdata3["total_ads"] ?> ads</span>
                                 </h4>
                             </div>
                             <div class="more-btn">
@@ -483,15 +503,20 @@ while($dataAd=$resAd->fetch_assoc())
                 </div>
                 <div class="col-lg-6 col-md-6 col-12">
                     <!-- Start Single City -->
+                    <?php
+             $tads4="SELECT COUNT(*) AS total_ads FROM tbl_product p inner join tbl_farmer f on f.farmer_id=p.farmer_id inner join tbl_place a on a.place_id=f.place_id inner join tbl_district d on d.district_id=a.district_id where d.district_id=10";
+             $tresult4=$con->query($tads4);
+             $tdata4=$tresult4->fetch_assoc();
+            ?>
                     <div class="single-city wow fadeInUp" data-wow-delay=".4s">
                         <a href="RequestSearch.php" class="info-box">
                             <div class="image">
-                                <img src="../Assets/Template/Main/assets/images/cities/img5.jpg" alt="#">
+                                <img src="../Assets/Template/Main/assets/images/cities/alapuzha.jpg"  alt="#">
                             </div>
                             <div class="content">
                                 <h4 class="name">
-                                    Newe Orleans
-                                    <span>76 Ads</span>
+                                    Alapuzha
+                                    <span><?php echo $tdata4["total_ads"]?> ads</span>
                                 </h4>
                             </div>
                             <div class="more-btn">
@@ -557,7 +582,7 @@ while($dataAd=$resAd->fetch_assoc())
                             aria-labelledby="nav-latest-tab">
                             <div class="row">
                             <?php
-$disQry="select * from tbl_product a inner join tbl_subcategory s on s.subcategory_id=a.subcategory_id inner join tbl_category c on s.category_id=c.category_id inner join tbl_farmer f on a.farmer_id=f.farmer_id inner join tbl_place p on p.place_id=f.place_id  inner join tbl_district d on p.district_id=d.district_id ORDER BY product_id DESC";
+$disQry="select * from tbl_product a inner join tbl_subcategory s on s.subcategory_id=a.subcategory_id inner join tbl_category c on s.category_id=c.category_id inner join tbl_farmer f on a.farmer_id=f.farmer_id inner join tbl_place p on p.place_id=f.place_id  inner join tbl_district d on p.district_id=d.district_id ORDER BY product_id DESC limit 8";
 $reqAd=$con->query($disQry);
 while($dataAd2=$reqAd->fetch_assoc())
 {
@@ -753,108 +778,7 @@ while($dataAd2=$reqAd->fetch_assoc())
     </section>
     <!-- /End Why Choose Area -->
     <!-- Start Pricing Table Area -->
-    <section class="pricing-table section">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="section-title">
-                        <h2 class="wow fadeInUp" data-wow-delay=".4s">Pricing Plan</h2>
-                        <p class="wow fadeInUp" data-wow-delay=".6s">There are many variations of passages of Lorem
-                            Ipsum available, but the majority have suffered alteration in some form.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-6 col-12">
-                    <!-- Single Table -->
-                    <div class="single-table wow fadeInUp" data-wow-delay=".2s">
-                        <!-- Table Head -->
-                        <div class="table-head">
-                            <div class="price">
-                                <h2 class="amount">$00<span class="duration">/ Month</span></h2>
-                            </div>
-                            <h4 class="title">Free</h4>
-                        </div>
-                        <!-- End Table Head -->
-                        <!-- Table List -->
-                        <ul class="table-list">
-                            <li>One Listing</li>
-                            <li>Contact Display</li>
-                            <li>Image Gallery</li>
-                            <li>30 Days Availablity</li>
-                            <li>Non-Featured</li>
-                            <li>Business Tagline</li>
-                        </ul>
-                        <!-- End Table List -->
-                        <!-- Table Bottom -->
-                        <div class="button">
-                            <a class="btn" href="javascript:void(0)">Select Plan</a>
-                        </div>
-                        <!-- End Table Bottom -->
-                    </div>
-                    <!-- End Single Table-->
-                </div>
-                <div class="col-lg-4 col-md-6 col-12">
-                    <!-- Single Table -->
-                    <div class="single-table wow fadeInUp" data-wow-delay=".4s">
-                        <!-- Table Head -->
-                        <div class="table-head">
-                            <div class="price">
-                                <h2 class="amount">$59<span class="duration">/ Month</span></h2>
-                            </div>
-                            <h4 class="title">Standard</h4>
-                        </div>
-                        <!-- End Table Head -->
-                        <!-- Table List -->
-                        <ul class="table-list">
-                            <li>One Listing</li>
-                            <li>Contact Display</li>
-                            <li>Image Gallery</li>
-                            <li>60 Days Availablity</li>
-                            <li>Non-Featured</li>
-                            <li>Business Tagline</li>
-                        </ul>
-                        <!-- End Table List -->
-                        <!-- Table Bottom -->
-                        <div class="button">
-                            <a class="btn" href="javascript:void(0)">Select Plan</a>
-                        </div>
-                        <!-- End Table Bottom -->
-                    </div>
-                    <!-- End Single Table-->
-                </div>
-                <div class="col-lg-4 col-md-6 col-12">
-                    <!-- Single Table -->
-                    <div class="single-table wow fadeInUp" data-wow-delay=".6s">
-                        <!-- Table Head -->
-                        <div class="table-head">
-                            <div class="price">
-                                <h2 class="amount">$99<span class="duration">/ Month</span></h2>
-                            </div>
-                            <h4 class="title">Premium</h4>
-                        </div>
-                        <!-- End Table Head -->
-                        <!-- Table List -->
-                        <ul class="table-list">
-                            <li>One Listing</li>
-                            <li>Contact Display</li>
-                            <li>Image Gallery</li>
-                            <li>90 Days Availablity</li>
-                            <li>Non-Featured</li>
-                            <li>Business Tagline</li>
-                        </ul>
-                        <!-- End Table List -->
-                        <!-- Table Bottom -->
-                        <div class="button">
-                            <a class="btn" href="javascript:void(0)">Select Plan</a>
-                        </div>
-                        <!-- End Table Bottom -->
-                    </div>
-                    <!-- End Single Table-->
-                </div>
-            </div>
-        </div>
-    </section>
+    
     <!--/ End Pricing Table Area -->
 
     <!-- Start Testimonials Area -->
@@ -864,8 +788,9 @@ while($dataAd2=$reqAd->fetch_assoc())
                 <div class="col-12">
                     <div class="section-title align-center gray-bg">
                         <h2 class="wow fadeInUp" data-wow-delay=".4s">What People Say</h2>
-                        <p class="wow fadeInUp" data-wow-delay=".6s">There are many variations of passages of Lorem
-                            Ipsum available, but the majority have suffered alteration in some form.</p>
+                        <p class="wow fadeInUp" data-wow-delay=".6s">Testimonials in this section may cover various aspects, such as the ease of use of the platform, 
+                            the effectiveness of the booking and transaction process, the quality of products listed, 
+                            and the overall positive impact of Agriconnect on the agricultural community.</p>
                     </div>
                 </div>
             </div>
@@ -877,16 +802,16 @@ while($dataAd2=$reqAd->fetch_assoc())
                             <i class="lni lni-quotation"></i>
                         </div>
                         <div class="author">
-                            <img src="../Assets/Template/Main/assets/images/testimonial/testi1.jpg" alt="#">
+                            <img src="../Assets/Template/Main/assets/images/testimonial/testlal.jpg" alt="#">
                             <h4 class="name">
-                                Jane Anderson
-                                <span class="deg">Founder & CEO</span>
-                            </h4>
+                                MohanLal
+                                <span class="deg">Actor
                         </div>
                         <div class="text">
-                            <p>"It’s amazing how much easier it has been to meet new people and create instant
-                                connections. I have the exact same personality, the only thing that has changed is my
-                                mindset and a few behaviors."</p>
+                            <p>"I've had an excellent experience using Agriconnect! The platform has made it incredibly easy for me to connect with reliable farmers
+                                 and make bulk purchases for my retail business. The booking process is straightforward, and the direct interaction with sellers ensures transparency. 
+                                Agriconnect has truly transformed the way I source agricultural products, 
+                                and I highly recommend it to others in the industry."</p>
                         </div>
                     </div>
                     <!-- End Single Testimonial -->
@@ -898,16 +823,14 @@ while($dataAd2=$reqAd->fetch_assoc())
                             <i class="lni lni-quotation"></i>
                         </div>
                         <div class="author">
-                            <img src="../Assets/Template/Main/assets/images/testimonial/testi2.jpg" alt="#">
+                            <img src="../Assets/Template/Main/assets/images/testimonial/testmamooty.jpg" alt="#">
                             <h4 class="name">
-                                Devid Samuyel
-                                <span class="deg">Web Developer</span>
+                                Mamooty
+                                <span class="deg">Actor</span>
                             </h4>
                         </div>
                         <div class="text">
-                            <p>"It’s amazing how much easier it has been to meet new people and create instant
-                                connections. I have the exact same personality, the only thing that has changed is my
-                                mindset and a few behaviors."</p>
+                            <p>Agriconnect has been a game-changer for my farm. The platform's intuitive design and robust features simplify the process of showcasing my produce to potential buyers. The direct communication with retailers ensures a smooth and transparent transaction. I've witnessed increased visibility for my farm, and the bookings have been a great way to secure deals. Thanks, Agriconnect, for revolutionizing the way we connect in the agricultural market!"</p>
                         </div>
                     </div>
                     <!-- End Single Testimonial -->
@@ -945,8 +868,7 @@ while($dataAd2=$reqAd->fetch_assoc())
                 <div class="col-12">
                     <div class="section-title">
                         <h2 class="wow fadeInUp" data-wow-delay=".4s">How it Works</h2>
-                        <p class="wow fadeInUp" data-wow-delay=".6s">There are many variations of passages of Lorem
-                            Ipsum available, but the majority have suffered alteration in some form.</p>
+                        <p class="wow fadeInUp" data-wow-delay=".6s">Sign up, post ads, connect with buyers. Agriconnect simplifies agricultural transactions. Effortless, transparent, and effective. Join the community today</p>
                     </div>
                 </div>
             </div>
@@ -956,7 +878,7 @@ while($dataAd2=$reqAd->fetch_assoc())
                     <div class="single-work wow fadeInUp" data-wow-delay=".2s">
                         <span class="serial">01</span>
                         <h3>Create Account</h3>
-                        <p>Lorem ipsum dolor sit amet constur adipisicing sed do eiusmod tempor incididunt labore.</p>
+                        <p>Sign up on Agriconnect in a few clicks. Connect with farmers, retailers, and explore seamless agricultural transactions. Join now!</p>
                     </div>
                     <!-- End Single Work -->
                 </div>
@@ -965,7 +887,7 @@ while($dataAd2=$reqAd->fetch_assoc())
                     <div class="single-work wow fadeInUp" data-wow-delay=".4s">
                         <span class="serial">02</span>
                         <h3>Post Your Ads</h3>
-                        <p>Lorem ipsum dolor sit amet constur adipisicing sed do eiusmod tempor incididunt labore.</p>
+                        <p>Showcase your crops and livestock effortlessly on Agriconnect. Post ads, connect with retailers, and boost your agricultural sales today!</p>
                     </div>
                     <!-- End Single Work -->
                 </div>
@@ -974,7 +896,7 @@ while($dataAd2=$reqAd->fetch_assoc())
                     <div class="single-work wow fadeInUp" data-wow-delay=".6s">
                         <span class="serial">03</span>
                         <h3>Sell Your Item</h3>
-                        <p>Lorem ipsum dolor sit amet constur adipisicing sed do eiusmod tempor incididunt labore.</p>
+                        <p>Turn your agricultural produce into profit. List, sell, and connect with buyers easily on Agriconnect. Start your selling journey now.</p>
                     </div>
                     <!-- End Single Work -->
                 </div>
@@ -984,7 +906,7 @@ while($dataAd2=$reqAd->fetch_assoc())
     <!-- End How Works Area -->
 
     <!-- Start Latest News Area -->
-    <div class="latest-news-area section">
+<!--<div class="latest-news-area section">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -997,7 +919,7 @@ while($dataAd2=$reqAd->fetch_assoc())
             </div>
             <div class="row">
                 <div class="col-lg-4 col-md-6 col-12">
-                    <!-- Single News -->
+                    
                     <div class="single-news wow fadeInUp" data-wow-delay=".3s">
                         <div class="image">
                             <a href="blog-single-sidebar.html"><img class="thumb" src="../Assets/Template/Main/assets/images/blog/blog1.jpg" alt="#"></a>
@@ -1015,10 +937,10 @@ while($dataAd2=$reqAd->fetch_assoc())
                             </div>
                         </div>
                     </div>
-                    <!-- End Single News -->
+                  
                 </div>
                 <div class="col-lg-4 col-md-6 col-12">
-                    <!-- Single News -->
+                   
                     <div class="single-news wow fadeInUp" data-wow-delay=".5s">
                         <div class="image">
                             <a href="blog-single-sidebar.html"><img class="thumb" src="../Assets/Template/Main/assets/images/blog/blog2.jpg" alt="#"></a>
@@ -1036,10 +958,10 @@ while($dataAd2=$reqAd->fetch_assoc())
                             </div>
                         </div>
                     </div>
-                    <!-- End Single News -->
+                    
                 </div>
                 <div class="col-lg-4 col-md-6 col-12">
-                    <!-- Single News -->
+                   
                     <div class="single-news wow fadeInUp" data-wow-delay=".7s">
                         <div class="image">
                             <a href="blog-single-sidebar.html"><img class="thumb" src="../Assets/Template/Main/assets/images/blog/blog3.jpg" alt="#"></a>
@@ -1057,10 +979,10 @@ while($dataAd2=$reqAd->fetch_assoc())
                             </div>
                         </div>
                     </div>
-                    <!-- End Single News -->
+                    
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
     <!-- End Latest News Area -->
 
@@ -1128,19 +1050,19 @@ while($dataAd2=$reqAd->fetch_assoc())
                             <div class="row">
                                 <div class="col-lg-6 col-md-6 col-12">
                                     <ul>
-                                        <li><a href="javascript:void(0)">Chicago</a></li>
-                                        <li><a href="javascript:void(0)">New York City</a></li>
-                                        <li><a href="javascript:void(0)">San Francisco</a></li>
-                                        <li><a href="javascript:void(0)">Washington</a></li>
-                                        <li><a href="javascript:void(0)">Boston</a></li>
+                                        <li><a href="javascript:void(0)">Kochi</a></li>
+                                        <li><a href="javascript:void(0)">Kottayam</a></li>
+                                        <li><a href="javascript:void(0)">Trivandrum</a></li>
+                                        <li><a href="javascript:void(0)">Kozhikode</a></li>
+                                        <li><a href="javascript:void(0)">Thrissur</a></li>
                                     </ul>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-12">
                                     <ul>
-                                        <li><a href="javascript:void(0)">Los Angeles</a></li>
-                                        <li><a href="javascript:void(0)">Seattle</a></li>
-                                        <li><a href="javascript:void(0)">Las Vegas</a></li>
-                                        <li><a href="javascript:void(0)">San Diego</a></li>
+                                        <li><a href="javascript:void(0)">Alappuzha</a></li>
+                                        <li><a href="javascript:void(0)">Malappuram</a></li>
+                                        <li><a href="javascript:void(0)">Palakkad</a></li>
+                                        <li><a href="javascript:void(0)">Kannur</a></li>
                                     </ul>
                                 </div>
                             </div>

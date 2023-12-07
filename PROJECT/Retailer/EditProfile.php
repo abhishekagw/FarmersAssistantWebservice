@@ -77,6 +77,15 @@ if(isset($_POST["btn_change"]))
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>My Account</title>
+<style>
+    .warning {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+    display: block;
+}
+
+    </style>
 </head>
 <body>
     <!-- Start Breadcrumbs -->
@@ -143,24 +152,27 @@ if(isset($_POST["btn_change"]))
                                 <div class="image">
                                     <img src="../Assets/Files/Retailer/Photo/<?php echo $dataH["retailer_photo"]?>" alt="#">
                                 </div>
-                                <form class="profile-setting-form" method="post" action="" enctype="multipart/form-data">
+                                <form class="profile-setting-form" method="post" action="" enctype="multipart/form-data" onsubmit="return validateForm()" name="editform">
                                     <div class="row">
                                         <div class="col-lg-6 col-12">
                                             <div class="form-group">
                                                 <label>Name*</label>
                                                 <input name="txt_name" type="text" value="<?php echo $dataH["retailer_name"] ?>" >
+                                                <span id="nameWarning" class="warning"></span>
                                             </div>
                                         </div>
                                         <div class="col-lg-6 col-12">
                                             <div class="form-group">
                                                 <label>Contact</label>
                                                 <input name="txt_contact" type="text" value="<?php echo $dataH["retailer_contact"] ?>">
+                                                <span id="contactWarning" class="warning"></span>
                                             </div>
                                         </div>
                                         <div class="col-lg-6 col-12">
                                             <div class="form-group">
                                                 <label>Email Address*</label>
                                                 <input name="txt_email" type="email" value="<?php echo $dataH["retailer_email"] ?>">
+                                                <span id="emailWarning" class="warning"></span>
                                             </div>
                                         </div>
                                         <div class="col-12">
@@ -191,7 +203,7 @@ if(isset($_POST["btn_change"]))
                         <div class="dashboard-block password-change-block">
                             <h3 class="block-title">Change Password</h3>
                             <div class="inner-block">
-                                <form class="default-form-style" method="post" action="">
+                                <form class="default-form-style" method="post" action="" onsubmit="return validatePass()" name="passform">
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="form-group">
@@ -212,6 +224,7 @@ if(isset($_POST["btn_change"]))
                                                 <label>Retype Password*</label>
                                                 <input name="txt_confirmpassword" type="password"
                                                     placeholder="Retype password" required="required" autocomplete="off">
+                                                    <span id="confirmPasswordWarning" class="warning"></span>
                                             </div>
                                         </div>
                                         <div class="col-12">
@@ -231,6 +244,73 @@ if(isset($_POST["btn_change"]))
 </section>
 
 </body>
+<script>
+    function validateForm() {
+    var name = document.forms["editform"]["txt_name"].value;
+    var email = document.forms["editform"]["txt_email"].value;
+    var contact = document.forms["editform"]["txt_contact"].value;
+
+    // Clear previous warnings
+    document.getElementById("nameWarning").innerHTML = "";
+    document.getElementById("emailWarning").innerHTML = "";
+    document.getElementById("contactWarning").innerHTML = "";
+    
+
+    // Clear warnings for other fields
+
+    var isValid = true;
+
+    if (name === "") {
+        document.getElementById("nameWarning").innerHTML = "Name must be filled out";
+        isValid = false;
+    }
+
+    // Validate email format
+    var emailFormat = /^\S+@\S+\.\S+$/;
+    if (email === "" || !email.match(emailFormat)) {
+        document.getElementById("emailWarning").innerHTML = "Please enter a valid email address";
+        isValid = false;
+    }
+
+    // Validate contact number format
+    var contactFormat = /^\d{10}$/;
+    if (contact === "" || !contact.match(contactFormat)) {
+        document.getElementById("contactWarning").innerHTML = "Please enter a valid 10-digit contact number";
+        isValid = false;
+    }
+
+    // Validate other fields and formats similarly...
+   
+
+    return isValid; // Form is ready to be submitted
+}
+
+function validatePass() {
+    var password = document.forms["passform"]["txt_newpassword"].value;
+    var confirmPass = document.forms["passform"]["txt_confirmpassword"].value;
+
+    // Clear previous warnings
+    document.getElementById("confirmPasswordWarning").innerHTML = "";
+    
+
+    // Clear warnings for other fields
+
+    var isValid = true;
+
+
+
+ 
+    if (password !== confirmPass) {
+        document.getElementById("confirmPasswordWarning").innerHTML = "Passwords do not match";
+        isValid = false;
+    }
+
+
+
+    return isValid; // Form is ready to be submitted
+}
+
+</script>
 <?php
 
 include('Foot.php');
